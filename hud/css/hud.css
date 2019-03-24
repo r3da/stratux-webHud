@@ -1,0 +1,122 @@
+
+div.hud {
+  height: 480px;
+  width: 960px;
+  top: -60px;
+  left: -150px;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.74,0.80);
+}
+
+div.scrollspeed {
+  width: 200px;
+  height: 600px;
+  top: -110px;
+  left: 20px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+#speedmask {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 192px;
+  height: 600px;
+  display: inline-block;
+  border: 0px;
+  z-index: 15;
+}
+
+#speedtape {
+  position: absolute;
+  top: -878px;
+  left: 20px;
+  width: 85px;
+  height: 1429px;
+  z-index: 4;
+}
+
+div.scrollaltitude {
+  width: 200px;
+  height: 600px;
+  top: -120px;
+  left: 720px;
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+}
+
+#altmask {
+  position: absolute;
+  top: -41px;
+  left: 0px;
+  width: 230px;
+  height: 600px;
+  display: inline-block;
+  overflow: hidden;
+  border: 0px;
+  z-index: 10;
+}
+
+#alttape {
+  position: absolute;
+  top: -5090px;
+  left: 100px;
+  width: 85px;
+  height: 5487px;
+  z-index: 1;
+}
+
+#altcorner {
+  top: 500px;
+  left: 90px;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 150;
+  overflow: hidden;
+}
+
+div.scrollheading {
+  width: 800px;
+  height: 95px;
+  top: 380px;
+  left: -40px;
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+}
+
+#headingmask {
+  position: absolute;
+  top: 0px;
+  left: 98px;
+  width: 800px;
+  height: 104px;
+  display: inline-block;
+  border: 0px;
+  z-index: 150;
+}
+
+#headingtape {
+  position: absolute;
+  top: 40px;
+  left: -598px;
+  width:3900px;
+  height: 62px;
+  z-index: 1;
+}
+
+#trafficList {
+  height: 100px;
+  width: 280px;
+  position: absolute;
+  top: 290px;
+  left: 560px;
+  visibility: hidden; 
+  z-index: 200;
+}
+
