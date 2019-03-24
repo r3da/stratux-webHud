@@ -9,7 +9,7 @@ One example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-v
 
 Rough instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
 
-I used the wired network nic on the Stratux RPi. the steps below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/
+I used the wired network nic on the Stratux RPi. the steps below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  starting at the heading "Minimum Environment for GUI Applications" after steps 1 and 2 below.
 
    1. sudo apt-get update
    2. sudo apt-get upgrade
