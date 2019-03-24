@@ -1,10 +1,12 @@
 # stratux-webHud
-Html content for adding a HUD to the Stratux RPi that gets it's display directly from the Stratux.
 
+stratux-webHud is a simple Html application that is displayed on a web page via the Chromium browser in Kiosk mode on the Stratux RPi itself.  You then use a 3.5mm TRRS cable from the composite video jack on the Stratux to the Kivic HUD, which will display that web page.   
+
+One example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-video-thinline-35mm-cable-assemblies-male-to-male-4-circuit-tip-ring-ring-sleeve-trrs
 
 Rough instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
 
-Use the wired network on the Stratux RPi. See https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/
+I used the wired network nic on the Stratux RPi. the steps below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/
 
    1. sudo apt-get update
    2. sudo apt-get upgrade
@@ -29,4 +31,4 @@ The next steps I want to do with this are to
 
 (2) add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's exact information, including distance, altitude, speed, and relative bearing from me."  
 
-
+A HUGE THANKS to Sébastien Matton (seb_matton@hotmail.com) for his wonderful jQuery flight indicators examples. Sébastien's work can be found at https://github.com/sebmatton/jQuery-Flight-Indicators
