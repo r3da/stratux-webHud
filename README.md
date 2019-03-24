@@ -21,7 +21,7 @@ This should give you /var/www/hud/ and its subdirectories css, img, and js.
  
 Reboot the Stratux RPi.  Using your favorite browser on iPad, phone, desktop, etc., join the stratux wifi network and go ahead and browse to http://192.168.10.1/hud/hud.html if everything is working, you should see an AHRS display with solid black background. Moving the Stratux should show very smooth movement of the AHRS (20 frames/sec.)
  
-Once operation of the AHRS display is confirmed, connect the Kivic HUD device via a 3.5 composite video cable from the Stratux jack to the external camera jack on the back of the Kivic.
+Once operation of the AHRS display is confirmed, connect the Kivic HUD device via the 3.5mm TRSS composite video cable from the Stratux jack to the external camera jack on the back of the Kivic.
 
 Viewing through the HUD, the black background will be clear and you can obviously then see right through it...
 
