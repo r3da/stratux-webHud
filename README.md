@@ -2,9 +2,10 @@
 Html content for adding a HUD to the Stratux RPi that gets it's display directly from the Stratux.
 
 
-Rough instructions:
+Rough instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
 
 Use the wired network on the Stratux RPi. See https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/
+
    1. sudo apt-get update
    2. sudo apt-get upgrade
    3. sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
@@ -22,6 +23,10 @@ Once operation of the AHRS display is confirmed, connect the Kivic HUD device vi
 
 Viewing through the HUD, the black background will be clear and you can obviously then see right through it...
 
-The next steps I want to do with this are to add a configuration page where the user can enter their aircraft's V-speeds, setup criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's exact information, including distance, altitude, speed, and relative bearing from me."  
+The next steps I want to do with this are to 
 
-The V-speeds will add the appropriate color bands on the speed tape on the left.  For now it will require editing the speed_tape.svg file in the img folder, where it can be easily edited to conform to your desired specs, and then exported (I used Inkscape) as speed_tape.png 
+(1) add a configuration page where the user can enter their aircraft's V-speeds. The V-speeds this will allow the app to add the appropriate color bands on the speed tape on the left.  For now it will require editing the speed_tape.svg file in the img folder, where it can be easily edited to conform to your desired specs, and then exported (I used Inkscape) as speed_tape.png 
+
+(2) add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's exact information, including distance, altitude, speed, and relative bearing from me."  
+
+
