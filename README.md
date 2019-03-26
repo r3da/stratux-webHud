@@ -6,6 +6,7 @@ One example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-v
 
 ![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoRPi.jpg)
 ![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoKivic.jpg)
+![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/screenshot.png)
 
 Rough instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
 
