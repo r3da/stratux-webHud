@@ -47,7 +47,7 @@ The next steps I would like to do with this are:
 
 (1) Get bluetooth functioning on the Stratux RPi so that a bluetooth numeric keypad can be paired. This will allow the functions above to be keyed in when in flight. (or more sophisticated, only do some when speed > x, etc.) 
 
-(2) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing the speed_tape.png file in the img folder, where it can be easily edited using your favorite graphic editor to conform to your desired specs.  The uploaded speed_tape image has the V-speeds for my Zenith CH650.
+(2) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing either the /img/speed_tape.png image directly, or edit /img/speed_tape.svg and save it as a png image. The current speed_tape.png image has the V-speeds for my Zenith CH650. (Note, the blue color at 60KT and the letters "BG" above that is the Best Glide speed for the CH650.)
 
 (3) Add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's detailed information, including the AC identifier, distance, altitude, speed, and relative bearing from me."  
 
