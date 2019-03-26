@@ -17,7 +17,7 @@
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="speed_tape.svg"
-   inkscape:export-filename="/home/bro/hud/hud/img/speed_tape.png"
+   inkscape:export-filename="/home/bro/hud/hud/img/speed_tape2.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -222,9 +222,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="17.780584"
-     inkscape:cy="482.86316"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="281.94524"
+     inkscape:cy="962.48671"
      inkscape:document-units="mm"
      inkscape:current-layer="svg8"
      showgrid="false"
@@ -1042,14 +1042,16 @@
      x="18.858082"
      y="370.26569" />
   <rect
-     style="display:inline;fill:#66ff00;stroke-width:0.3001456;fill-opacity:1"
+     style="display:inline;fill:#2dff00;stroke-width:0.3001456;fill-opacity:1"
      id="rect715-1"
      width="2.2835906"
      height="48.041061"
      x="18.965879"
-     y="281.07089" />
+     y="281.07089"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
   <rect
-     style="display:inline;fill:#e6ff00;stroke-width:0.23559327;fill-opacity:1"
+     style="display:inline;fill:#ffff00;stroke-width:0.23559327;fill-opacity:1"
      width="2.3139412"
      height="40.151409"
      x="18.879152"
