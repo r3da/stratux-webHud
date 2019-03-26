@@ -52,4 +52,4 @@ The next steps I would like to do with this are:
 
 (3) Add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's detailed information, including the AC identifier, distance, altitude, speed, and relative bearing from me."  
 
-A HUGE THANKS goes out to John Marzulli for his work on an aircraft HUD, which inspired me to do this as a web app on the stratux itself. John's work can be found at: https://github.com/JohnMarzulli/StratuxHud and I also give a HUGE THANKS to Sébastien Matton for his wonderful jQuery flight indicators examples. Sébastien's work can be found at https://github.com/sebmatton/jQuery-Flight-Indicators
+A HUGE THANKS goes out to John Marzulli for his work on an aircraft HUD, which inspired me to do this as a web app on the stratux itself. John's work can be found at: https://github.com/JohnMarzulli/StratuxHud.
