@@ -34,8 +34,10 @@ to scale the 2 dimensions to your liking. It is suggested to not change values f
 
 The next steps I wuld like to do with this are:
 
-(1) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing the speed_tape.svg file in the img folder, where it can be easily edited to conform to your desired specs, and then exported (I used Inkscape) as speed_tape.png. The uploaded speed_tape image has the V-speeds for my Zenith CH650.
+(1) Get bluetooth functioning on the Stratux RPi so that a bluetooth numeric keypad can be paired. This will allow certain functions to be keyed in directly on the keypad. For example, keying the keing the ONE key could be used to re-cage the AHRS, or keying the TWO key could toggle a "nearest traffic list..." 
 
-(2) Add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's detailed information, including the AC identifier, distance, altitude, speed, and relative bearing from me."  
+(2) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing the speed_tape.svg file in the img folder, where it can be easily edited to conform to your desired specs, and then exported (I used Inkscape) as speed_tape.png. The uploaded speed_tape image has the V-speeds for my Zenith CH650.
+
+(3) Add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's detailed information, including the AC identifier, distance, altitude, speed, and relative bearing from me."  
 
 A HUGE THANKS goes out to John Marzulli for his work on an aircraft HUD, which inspired me to do this as a web app on the stratux itself. John's work can be found at: https://github.com/JohnMarzulli/StratuxHud and I also give a HUGE THANKS to Sébastien Matton for his wonderful jQuery flight indicators examples. Sébastien's work can be found at https://github.com/sebmatton/jQuery-Flight-Indicators
