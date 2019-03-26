@@ -152,20 +152,11 @@ function onMessage(evt) {
     var reg = obj.Reg;
     var alt = Number(obj.Alt);
     var myAlt = Number(altitudebox.textContent);
+    var isWarning = false;
 
     var tag = reg + "... Brg: " + brng + ".. Dist: " + dist + ".. Alt: " +  alt;
 
-    if (clrCount < 100) {
-        clrCount = clrCount + 1;
-    }
-    else if (clrCount >= 100)
-    {
-        clrCount = 0;
-        for (x = 0; x < 5; x++) {
-            airplane[x].textContent = "";
-        }
-    }
-
+    // we're only going to consider traffic that has been "visible" for 20 cycles
     if (rcvCount < 20) {
         rcvCount = rcvCount + 1;
     }
@@ -173,19 +164,23 @@ function onMessage(evt) {
         console.log(tag);
         rcvCount = 0;
 
-        if (dist <= 6) {
-            if (alt < 10000) {
-                if (brng > 0 ) {   
+        if (dist <= warning_distance) {
+            if (alt <= myAlt + warning_distance && alt >= myAlt - warning_distance) {
+                if (brng != 0 ) { 
+                    isWarning = true;
                     for (x = 0; x < 5; x++) {
-                        if (airplane[x].textContent != tag) {
-                            if (airplane[x].textContent.length == 0) {    
-                                airplane[x].textContent = tag;
-                            }
+                        if (airplane[x].textContent.length == 0) {
+                           airplane[x].textContent = tag;
                         }
                     }
                 }
             }
         }
+    }
+
+    // if we have at least one warning, show the warning box...
+    if (isWarning) {
+        trafficList.css('visibility', 'visible');
     }
 }
 
