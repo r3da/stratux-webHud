@@ -52,14 +52,6 @@
 					_setAltitude(settings.altitude);
 					_setPressure(settings.pressure);
 				break;
-				/*
-				case 'scrollspeed':
-					_setGpsSpeed(settings.speed); 
-				break;	
-				case 'scrollaltitude':
-					_setGpsAltitude(settings.altitude);
-				break;
-				*/
 				case 'attitude':
 				default:
 					$(this).html('<div class="instrument attitude"><div class="roll box"><img src="' + settings.img_directory + 'horizon_back.svg" class="box" alt="" /><div class="pitch box"><img src="' + settings.img_directory + 'horizon_ball.svg" class="box" alt="" /></div><img src="' + settings.img_directory + 'horizon_circle.svg" class="box" alt="" /></div><div class="mechanics box"><img src="' + settings.img_directory + 'horizon_mechanics.svg" class="box" alt="" /><img src="' + settings.img_directory + 'fi_circle.svg" class="box" alt="" /></div></div>');
@@ -135,33 +127,7 @@
 				$(this).find('div.instrument.altimeter div.pressure').css('transform', 'rotate(' + pressure + 'deg)');
 			});	
 		}
-		
-		/*
-		function _setGpsSpeed(speed){
-			// this is the tape at ZERO kts.  ALL speeds will move the tape up and down in the Y coordinate.
-			const y_offset = 0; //14;  
-			// so, if speed is 30 kts, the Y coordinate of the tape needs to go more negative
-			var ticks = Math.trunc(((speed * 4.8) + y_offset) * -1);
-
-			placeholder.each(function(){
-				var obj = $(this).find('div.speedtape');
-				obj.css('transform', 'translateY(' + ticks + 'px)');
-			});	
-		}
-
-		function _setGpsAltitude(altitude){
-			// this is the tape at ZERO altitude.  ALL altitudes will move the tape up and down in the Y coordinate.
-			const y_offset = 0; //14;  
-			// so, if altitude is > 0 ft, the Y coordinate of the tape needs to go more negative
-			var ticks = ((altitude * .5) + y_offset) * -1;
 			
-			placeholder.each(function(){
-				var obj = $(this).find('div.alttape');
-				obj.css('transform', 'translateY(' + ticks + 'px)');
-			});	
-		}
-		*/
-		
 		function _resize(size){
 			placeholder.each(function(){
 				$(this).find('div.instrument').css({height : size, width : size});
@@ -189,8 +155,6 @@
 		this.setAirSpeed = function(speed){_setAirSpeed(speed);}
 		this.setAltitude = function(altitude){_setAltitude(altitude);}
 		this.setPressure = function(pressure){_setPressure(pressure);}
-		//this.setGpsSpeed = function(speed){_setGpsSpeed(speed);}
-		//this.setGpsAltitude = function(altitude){_setGpsAltitude(altitude);}
 		this.resize = function(size){_resize(size);}
 		this.showBox = function(){_showBox();}
 		this.hideBox = function(){_hideBox();}
