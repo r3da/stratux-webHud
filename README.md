@@ -4,7 +4,7 @@ stratux-webHud is a simple Html application that is displayed on a web page in t
 
 An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-video-thinline-35mm-cable-assemblies-male-to-male-4-circuit-tip-ring-ring-sleeve-trrs
 
-<p>
+
 ![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/bankScreenshot.png)
 ![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoRPi.jpg)
 ![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoKivic.jpg)
