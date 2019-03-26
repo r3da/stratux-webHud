@@ -43,7 +43,7 @@ There are also key events that are active in javascript, for performing most of 
     "l" or numeric keypad "0" will re[L]oad the web page (like after making adjustment to scale, etc.)
     "t" or numeric keypad "9" will toggle a [T]raffic popup (not yet populated with data)  
         
-The next steps I wuld like to do with this are:
+The next steps I would like to do with this are:
 
 (1) Get bluetooth functioning on the Stratux RPi so that a bluetooth numeric keypad can be paired. This will allow the functions above to be keyed in when in flight. (or more sophisticated, only do some when speed > x, etc.) 
 
