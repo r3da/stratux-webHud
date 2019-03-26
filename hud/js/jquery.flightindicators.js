@@ -1,12 +1,5 @@
-/* 
-* jQuery Flight Indicators plugin
-* By Sébastien Matton (seb_matton@hotmail.com)
-* Published under GPLv3 License.
-* 
-* https://github.com/sebmatton/jQuery-Flight-Indicators
-*/
 (function($) {
-	function FlightIndicator( placeholder, type, options ) {
+	function AttitudeIndicator( placeholder, type, options ) {
 		var settings = $.extend({
 			size : 600,	
 			roll : 0,
@@ -19,7 +12,6 @@
 			pitch_bound:30,
 		}
 
-		// Creation of the instrument
 		placeholder.each(function(){
 			$(this).html('<div class="instrument attitude"><div class="roll box"><img src="' + settings.img_directory + 'horizon_back.svg" class="box" alt="" /><div class="pitch box"><img src="' + settings.img_directory + 'horizon_ball.svg" class="box" alt="" /></div><img src="' + settings.img_directory + 'horizon_circle.svg" class="box" alt="" /></div><div class="mechanics box"><img src="' + settings.img_directory + 'horizon_mechanics.svg" class="box" alt="" /><img src="' + settings.img_directory + 'fi_circle.svg" class="box" alt="" /></div></div>');
 			    _setRoll(settings.roll);
@@ -29,7 +21,6 @@
 			$(this).find('div.instrument img.box.background').toggle(settings.showBox);
 		});
 
-		// Private methods
 		function _setRoll(roll){
 			placeholder.each(function(){
 				$(this).find('div.instrument.attitude div.roll').css('transform', 'rotate('+roll+'deg)');
@@ -37,7 +28,6 @@
 		}
 
 		function _setPitch(pitch){
-			// alert(pitch);
 			if(pitch>constants.pitch_bound){pitch = constants.pitch_bound;}
 			else if(pitch<-constants.pitch_bound){pitch = -constants.pitch_bound;}
 			placeholder.each(function(){
@@ -63,7 +53,6 @@
 			});
 		}
 
-		// Public methods
 		this.setRoll = function(roll){_setRoll(roll);}
 		this.setPitch = function(pitch){_setPitch(pitch);}
 		this.resize = function(size){_resize(size);}
@@ -73,15 +62,14 @@
 		return attitude;
 	};
 
-	// Extension to jQuery
-	$.flightIndicator = function(placeholder, type, options){
-		var flightIndicator = new FlightIndicator($(placeholder), type, options)
-		return flightIndicator;
+	$.attitudeIndicator = function(placeholder, type, options){
+		var attitudeIndicator = new AttitudeIndicator($(placeholder), type, options)
+		return attitudeIndicator;
 	}
 
-	$.fn.flightIndicator = function(data, type, options){
+	$.fn.attitudeIndicator = function(data, type, options){
 		return this.each(function(){
-			$.flightIndicator(this, type, options);
+			$.attitudeIndicator(this, type, options);
 		});
 	}
 }( jQuery ));
