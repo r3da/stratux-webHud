@@ -20,7 +20,7 @@ I used the wired nic on the Stratux RPi for downloading updates. The steps below
    5. sudo nano /etc/xdg/openbox/autostart
    6. add the contents of the autostart file in hud/scripts found in this repository
  
-Recursively copy the hud directory to the stratux folder /var/www/
+Recursively copy the hud folder to the stratux folder /var/www/
  
 This should give you /var/www/hud/ and its subdirectories css, img, and js.
  
