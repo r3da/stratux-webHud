@@ -90,7 +90,6 @@ const hdg_offset = 4.720;
 
 var speedbox = document.getElementById('tspanSpeed');
 var altitudebox = document.getElementById('tspanAltitude');
-var gindicator = document.getElementById('tspan696');
 var headingbox = document.getElementById('tspanHeading');
 var gbox = document.getElementById('tspanGMeter');
 
@@ -236,7 +235,6 @@ setInterval(function() {
         altitude = Math.trunc(obj.GPSAltitudeMSL);
         heading = Math.trunc(obj.GPSTrueCourse);
         gnumber = obj.AHRSGLoad.toFixed(1);
-        gindicator.textContent = 'G';
         speedbox.textContent = speed;
         altitudebox.textContent = altitude;
         headingbox.textContent = pad(heading, 3);
