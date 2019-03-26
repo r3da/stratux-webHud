@@ -15,9 +15,9 @@
    viewBox="0 0 22.489583 487.89169"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="speed_tape.svg"
-   inkscape:export-filename="C:\web\github\stratux-webHud\hud\img\speed_tape.png"
+   inkscape:export-filename="/home/bro/hud/hud/img/speed_tape.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -222,19 +222,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="116.93468"
-     inkscape:cy="794.23867"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="52.428817"
+     inkscape:cy="252.23867"
      inkscape:document-units="mm"
      inkscape:current-layer="svg8"
      showgrid="false"
      showguides="false"
      inkscape:measure-start="355,890"
      inkscape:measure-end="0,0"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1366"
+     inkscape:window-height="707"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      units="px">
     <inkscape:grid
@@ -265,8 +265,8 @@
        style="display:inline;fill:#000000;stroke-width:0.32655153;image-rendering:auto" />
   </g>
   <path
-     style="display:inline;fill:#ffffff;stroke-width:0.28241792"
-     d="M 18.892321,215.50815 V 11.869185 h 1.17352 1.173491 V 215.50815 419.14747 h -1.173491 -1.17352 z"
+     style="display:inline;fill:#ffffff;stroke-width:0.28204471"
+     d="M 18.892321,214.97027 V 11.869185 h 1.17352 1.173491 V 214.97027 418.07171 h -1.173491 -1.17352 z"
      id="path386"
      inkscape:connector-curvature="0" />
   <rect
@@ -1042,10 +1042,10 @@
      x="20.222652"
      y="329.11197" />
   <rect
-     style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.73029751;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+     style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.72136587;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
      id="rect1082"
      width="2.3812499"
-     height="48.975315"
+     height="47.784691"
      x="18.858082"
      y="370.26569" />
   <rect
