@@ -6,6 +6,7 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 
 
 ![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/bankScreenshot.png)
+![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/BGScreenshot.png)
 ![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoRPi.jpg)
 ![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoKivic.jpg)
 
