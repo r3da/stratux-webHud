@@ -32,9 +32,20 @@ If you need to tweak the view to your screen, the div.hud class in the hud.css f
 to scale the 2 dimensions to your liking. It is suggested to not change values for masks and tapes, as they are calibrated by number of pixels to offset based on the speed, altitude, or heading values being applied.
 ![Image of ScaleSetting](https://github.com/N129BZ/stratux-webHud/blob/master/scalesetting.png)
 
+There are also key events that are active in javascript, for performing most of the functions exposed by Stratux's REST interface. Currently, these will only work when viewing the HUD screen on your laptop/desktop:
+
+    "c" or numeric keypad "1" will [C]age AHRS
+    "a" or numeric keypad "2" will calibrate [A]HRS
+    "s" or numeric keypad "3" will re[S]tart
+    "g" or numeric keypad "4" will reset [G]meter
+    "b" or numeric keypad "5" will re[B]oot"
+    "k" or numeric keypad "7" will [K]ill (shutdown) stratux
+    "l" or numeric keypad "0" will re[L]oad the web page (like after making adjustment to scale, etc.)
+    "t" or numeric keypad "9" will toggle a [T]raffic popup (not yet populated with data)  
+        
 The next steps I wuld like to do with this are:
 
-(1) Get bluetooth functioning on the Stratux RPi so that a bluetooth numeric keypad can be paired. This will allow certain functions to be keyed in directly on the keypad. For example, keying the keing the ONE key could be used to re-cage the AHRS, or keying the TWO key could toggle a "nearest traffic list..." 
+(1) Get bluetooth functioning on the Stratux RPi so that a bluetooth numeric keypad can be paired. This will allow the functions above to be keyed in when in flight. (or more sophisticated, only do some when speed > x, etc.) 
 
 (2) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing the speed_tape.svg file in the img folder, where it can be easily edited to conform to your desired specs, and then exported (I used Inkscape) as speed_tape.png. The uploaded speed_tape image has the V-speeds for my Zenith CH650.
 
