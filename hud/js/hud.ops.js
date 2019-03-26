@@ -253,10 +253,10 @@ setInterval(function() {
     if (wsOpen) {
         // ping Stratux with some data (doesn't matter what, so just using UTC time)
         if (countCycle >= 80) {
-            var data = new Date();
+            var data = new Date().getTime();
             countCycle = 0;
-            sendKeepAlive(data.getTime());
-            console.log("Sent Keep Alive, data = " + data.getTime());
+            sendKeepAlive(data);
+            console.log("Sent Keep Alive, data = " + data);
         }
         countCycle ++;
     }
