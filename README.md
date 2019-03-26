@@ -31,6 +31,16 @@ Once operation of the AHRS display is confirmed, plug your video cable and verif
 If you need to tweak the view to your screen, the div.hud class in the hud.css file can be edited at the setting transform: scale(x, y)
 to scale the 2 dimensions to your liking. It is suggested to not change values for masks and tapes, as they are calibrated by number of pixels to offset based on the speed, altitude, or heading values being applied.
 
+div.hud {
+  height: 480px;
+  width: 960px;
+  top: -60px;
+  left: -150px;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.74,0.80); <=== adjust scaled height and width here... 
+}
+
 The next steps I want to do with this are to 
 
 (1) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing the speed_tape.svg file in the img folder, where it can be easily edited to conform to your desired specs, and then exported (I used Inkscape) as speed_tape.png. The uploaded speed_tape image has the V-speeds for my Zenith CH650.
