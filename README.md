@@ -5,10 +5,10 @@ stratux-webHud is a simple Html application that is displayed on a web page in t
 An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-video-thinline-35mm-cable-assemblies-male-to-male-4-circuit-tip-ring-ring-sleeve-trrs
 
 
-![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/bankScreenshot.png)
-![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/BGScreenshot.png)
-![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoRPi.jpg)
-![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/PluggedIntoKivic.jpg)
+![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/bankScreenshot.png)
+![Image of Screen](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/BGScreenshot.png)
+![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoRPi.jpg)
+![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoKivic.jpg)
 
 Rough instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
 
