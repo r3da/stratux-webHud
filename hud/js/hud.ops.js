@@ -16,12 +16,12 @@
 			switch(type){
 				case 'attitude':
 				default:
-					$(this).html('<div class="instrument attitude"><div class="roll box"><img src="' + settings.img_directory + 'horizon_back.svg" class="box" alt="" /><div class="pitch box"><img src="' + settings.img_directory + 'horizon_ball.svg" class="box" alt="" /></div><img src="' + settings.img_directory + 'horizon_circle.svg" class="box" alt="" /></div><div class="mechanics box"><img src="' + settings.img_directory + 'horizon_mechanics.svg" class="box" alt="" /><img src="' + settings.img_directory + 'fi_circle.svg" class="box" alt="" /></div></div>');
+					$(this).html('<div class="instrument attitude"><div class="roll box"><img src="' + settings.img_directory + 'horizon_back.svg" class="box" alt="" /><div class="pitch box"><img src="' + settings.img_directory + 'horizon_ball.svg" class="box" alt="" /></div><img src="' + settings.img_directory + 'horizon_circle.svg" class="box" alt="" /></div><div class="mechanics box"><img src="' + settings.img_directory + 'horizon_mechanics.svg" class="box" alt="" /></div></div>');
 					_setRoll(settings.roll);
 					_setPitch(settings.pitch);
 			}
 			
-			$(this).find('div.instrument').css({height : 500, width : 500}); 
+			$(this).find('div.instrument').css({height : 500, width : 600}); 
 			$(this).find('div.instrument img.box.background').toggle(settings.showBox);
 		});
 
@@ -157,16 +157,26 @@ var speedtape = $('#speedtape');
 var alttape = $('#alttape');
 var headingtape = $('#headingtape');
 var trafficList = $('#trafficList');
-var attitude = $.flightIndicator('#attitude', 'attitude', {roll:50, pitch:-20, size:600, showBox : true});
+var attitude = $.attitudeIndicator('#attitude', 'attitude', {roll:50, pitch:-20, size:600, showBox : true});
 var wsOpen = false;
 var speed = 0;
 var altitude = 0;
 var heading = 0;
 var gnumber = 0;
 
-const spd_offset = 4.8;
-const alt_offset = .4792;
-const hdg_offset = 4.720;
+/////////////////////////////////////////////////////////////////////////
+//
+// For now, I'm using hard coded criteria for the traffic warning...
+// this needs to be replaced by user-defined criteria. 
+//
+/////////////////////////////////////////////////////////////////////////
+var warning_distance = 5;   // miles
+var warning_altitude = 700; // feet
+
+// tape offsets, in pixels per unit of measure
+const spd_offset = 4.8;    // Knots
+const alt_offset = .4792;  // Feet MSL
+const hdg_offset = 4.720;  // Degrees
 
 var speedbox = document.getElementById('tspanSpeed');
 var altitudebox = document.getElementById('tspanAltitude');
@@ -305,11 +315,13 @@ setInterval(function() {
         attitude.setRoll(obj.AHRSRoll);
         attitude.setPitch(obj.AHRSPitch);
         
-        // set the speed and altitude "box" values
+        // set these values to a reasonable precision
         speed = Math.trunc(obj.GPSGroundSpeed);
         altitude = Math.trunc(obj.GPSAltitudeMSL);
         heading = Math.trunc(obj.GPSTrueCourse);
         gnumber = obj.AHRSGLoad.toFixed(1);
+
+        // set the speed, altitude, heading, and GMeter values
         speedbox.textContent = speed;
         altitudebox.textContent = altitude;
         headingbox.textContent = pad(heading, 3);
