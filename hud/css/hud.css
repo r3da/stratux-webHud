@@ -120,12 +120,12 @@ div.scrollheading {
   z-index: 1;
 }
 
-#trafficList {
-  height: 100px;
-  width: 280px;
+#trafficWarning {
+  height: 400px;
+  width: 900px;
   position: absolute;
-  top: 290px;
-  left: 560px;
+  top: 60px;
+  left: 30px;
   visibility: hidden; 
   z-index: 200;
 }

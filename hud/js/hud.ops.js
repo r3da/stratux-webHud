@@ -106,18 +106,9 @@ $(document).keyup(function(e) {
     case 96:    // "0"
         location.reload();
         break;
-    case 84:    // "t" as in [T]raffic  
+    case 87:    // "w" as in show proximity [W]arnings  
     case 105:   // "9" - toggle traffic image
-        showTraffic = !showTraffic;
-        if (showTraffic) {   
-            trafficList.css('visibility', 'visible');  
-        }
-        else {
-            for (x = 0; x < 5; x++) {
-                airplane[x].textContent = "";
-                trafficList.css('visibility', 'hidden');
-            }
-        }
+        showWarning = !showWarning;
         break;
     }
 });
@@ -147,11 +138,11 @@ const urlAHRS = "http://192.168.10.1/getSituation";
 
 // ADS-B traffic websocket url
 const urlTraffic = "ws://192.168.10.1/traffic";
-var showTraffic = false;
+var showWarning = false;
 var speedtape = $('#speedtape');
 var alttape = $('#alttape');
 var headingtape = $('#headingtape');
-var trafficList = $('#trafficList');
+var trafficWarning = $('#trafficWarning');
 var attitude = $.attitudeIndicator('#attitude', 'attitude', {roll:50, pitch:-20, size:600, showBox : true});
 var wsOpen = false;
 var speed = 0;
@@ -165,8 +156,8 @@ var gnumber = 0;
 // this needs to be replaced by user-defined criteria. 
 //
 /////////////////////////////////////////////////////////////////////////
-var warning_distance = 5;   // miles
-var warning_altitude = 700; // feet
+var warning_distance = 10;   // miles
+var warning_altitude = 8000; // feet
 
 // tape offsets, in pixels per unit of measure
 const spd_offset = 4.8;    // Knots
@@ -178,12 +169,15 @@ var altitudebox = document.getElementById('tspanAltitude');
 var headingbox = document.getElementById('tspanHeading');
 var gbox = document.getElementById('tspanGMeter');
 
-var airplane = [document.getElementById("tspanAirplane1"), 
-                document.getElementById("tspanAirplane2"), 
-                document.getElementById("tspanAirplane3"),
-                document.getElementById("tspanAirplane4"),
-                document.getElementById("tspanAirplane5")];
+var warningIdentity = document.getElementById("tspanWarnIdentity"); 
+var warningAltitude = document.getElementById("tspanWarnAltitude");
+var warningDistance = document.getElementById("tspanWarnDistance");
+var warningBearing = document.getElementById("tspanWarnBearing");
 
+var lastIdent = "";
+var lastAlt = 0;
+var lastDist = 0;
+var lastBrng = 0;
 var rcvCount = 0;
 var clrCount = 0;
 
@@ -206,9 +200,6 @@ if (window.WebSocket === undefined) {
 }
 else {
     window.addEventListener("load", onLoad, false);
-    for (x = 0; x < 5; x++) {
-        airplane[x].textContent = "";
-    }
 }
 
 function onLoad() {
@@ -239,33 +230,33 @@ function onMessage(evt) {
     var myAlt = Number(altitudebox.textContent);
     var isWarning = false;
 
-    var tag = reg + "... Brg: " + brng + ".. Dist: " + dist + ".. Alt: " +  alt;
-
-    // we're only going to consider traffic that has been "visible" for 20 cycles
+    if (!showWarning) {
+        trafficWarning.css('visibility', 'hidden')
+        return;
+    }
+    
+    // we're only going to consider traffic that has been continuously reported for 20 cycles (1 second)
     if (rcvCount < 20) {
         rcvCount = rcvCount + 1;
     }
     else if (rcvCount >= 20) {
-        console.log(tag);
+        console.log("Show Warning = " + showWarning + ", " +  reg + " - Brg: " + brng + ", Dist: " + dist + ", Alt: " +  alt);
         rcvCount = 0;
-
         if (dist <= warning_distance) {
-            if (alt <= myAlt + warning_distance && alt >= myAlt - warning_distance) {
+            if (alt <= myAlt + warning_altitude && alt >= myAlt - warning_altitude) {
                 if (brng != 0 ) { 
                     isWarning = true;
-                    for (x = 0; x < 5; x++) {
-                        if (airplane[x].textContent.length == 0) {
-                           airplane[x].textContent = tag;
-                        }
-                    }
+                    warningIdentity.textContent = reg;
+                    warningAltitude.textContent = alt;
+                    warningDistance.textContent = dist;
+                    warningBearing.textContent = brng;
                 }
             }
         }
     }
 
-    // if we have at least one warning, show the warning box...
     if (isWarning) {
-        trafficList.css('visibility', 'visible');
+        trafficWarning.css('visibility', 'visible');
     }
 }
 
