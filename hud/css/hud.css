@@ -1,4 +1,14 @@
 
+body { 
+  background-color: #000000; 
+  width: 960px;
+  height: 480px;
+  top: 0px;
+  left: 0px;
+  margin: 0%;
+  overflow: hidden;
+}
+
 div.hud {
   height: 480px;
   width: 960px;
