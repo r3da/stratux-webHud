@@ -43,7 +43,7 @@ body {
 #speedtape {
   position: absolute;
   top: -1315px;
-  left: 20px;
+  left: 16px;
   width: 85px;
   height: 1844px;
   z-index: 4;
@@ -80,16 +80,6 @@ body {
   z-index: 1;
 }
 
-#altcorner {
-  top: 500px;
-  left: 90px;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  z-index: 150;
-  overflow: hidden;
-}
-
 .scrollheading {
   width: 800px;
   height: 95px;
@@ -113,7 +103,7 @@ body {
 
 #headingtape {
   position: absolute;
-  top: 40px;
+  top: 50px;
   left: -598px;
   width:3900px;
   height: 62px;

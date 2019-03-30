@@ -221,6 +221,19 @@ function onClose(evt) {
 }
         
 function onMessage(evt) {
+    /*-----------------------------------------------------------------------------------------    
+                                 Traffic JSON sample 
+    -------------------------------------------------------------------------------------------
+        {"Icao_addr":11316589,"Reg":"N916EV","Tail":"N916EV","Emitter_category":0,
+        "OnGround":false,"Addr_type":0,"TargetType":0,"SignalLevel":-28.00244822746525,
+        "Squawk":0,"Position_valid":false,"Lat":0,"Lng":0,"Alt":5550,"GnssDiffFromBaroAlt":0,
+        "AltIsGNSS":false,"NIC":0,"NACp":0,"Track":0,"Speed":0,"Speed_valid":false,"Vvel":0,
+        "Timestamp":"2019-03-12T13:32:30.563Z","PriorityStatus":0,"Age":18.2,"AgeLastAlt":1.83,
+        "Last_seen":"0001-01-01T00:39:27.49Z","Last_alt":"0001-01-01T00:39:43.86Z",
+        "Last_GnssDiff":"0001-01-01T00:00:00Z","Last_GnssDiffAlt":0,"Last_speed":"0001-01-01T00:00:00Z",
+        "Last_source":1,"ExtrapolatedPosition":false,"BearingDist_valid":true,
+        "Bearing":92.7782277589171,"Distance":9.616803034808295e+06}
+    --------------------------------------------------------------------------------------------*/
     var obj = JSON.parse(evt.data);
     var meters =  Number(obj.Distance.toFixed(1));
     var dist = Number(((meters * 3.28084) / 5280).toFixed(1));
@@ -243,13 +256,14 @@ function onMessage(evt) {
         console.log("Show Warning = " + showWarning + ", " +  reg + " - Brg: " + brng + ", Dist: " + dist + ", Alt: " +  alt);
         rcvCount = 0;
         if (dist <= warning_distance) {
-            if (alt <= myAlt + warning_altitude && alt >= myAlt - warning_altitude) {
+            if (alt <= myAlt + warning_altitude && alt >= myAlt - warning_altitude && reg != lastIdent) {
                 if (brng != 0 ) { 
                     isWarning = true;
                     warningIdentity.textContent = reg;
                     warningAltitude.textContent = alt;
                     warningDistance.textContent = dist;
                     warningBearing.textContent = brng;
+                    lastIdent = reg;
                 }
             }
         }
@@ -270,21 +284,6 @@ function sendKeepAlive(data) {
 function onError(evt) {
     console.log("Websocket ERROR: " + evt.data);
 }
-
-
-/*-----------------------------------------------------------------------------------------    
-                                 Traffic JSON sample 
--------------------------------------------------------------------------------------------
-        {"Icao_addr":11316589,"Reg":"N916EV","Tail":"N916EV","Emitter_category":0,
-        "OnGround":false,"Addr_type":0,"TargetType":0,"SignalLevel":-28.00244822746525,
-        "Squawk":0,"Position_valid":false,"Lat":0,"Lng":0,"Alt":5550,"GnssDiffFromBaroAlt":0,
-        "AltIsGNSS":false,"NIC":0,"NACp":0,"Track":0,"Speed":0,"Speed_valid":false,"Vvel":0,
-        "Timestamp":"2019-03-12T13:32:30.563Z","PriorityStatus":0,"Age":18.2,"AgeLastAlt":1.83,
-        "Last_seen":"0001-01-01T00:39:27.49Z","Last_alt":"0001-01-01T00:39:43.86Z",
-        "Last_GnssDiff":"0001-01-01T00:00:00Z","Last_GnssDiffAlt":0,"Last_speed":"0001-01-01T00:00:00Z",
-        "Last_source":1,"ExtrapolatedPosition":false,"BearingDist_valid":true,
-        "Bearing":92.7782277589171,"Distance":9.616803034808295e+06}
---------------------------------------------------------------------------------------------*/
 
 setInterval(function() {
      
