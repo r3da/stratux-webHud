@@ -9,7 +9,7 @@ body {
   overflow: hidden;
 }
 
-div.hud {
+.hud {
   height: 480px;
   width: 960px;
   top: -60px;
@@ -19,7 +19,7 @@ div.hud {
   transform: scale(0.74,0.80);
 }
 
-div.scrollspeed {
+.scrollspeed {
   width: 200px;
   height: 600px;
   top: -110px;
@@ -49,7 +49,7 @@ div.scrollspeed {
   z-index: 4;
 }
 
-div.scrollaltitude {
+.scrollaltitude {
   width: 200px;
   height: 632px;
   top: -120px;
@@ -90,7 +90,7 @@ div.scrollaltitude {
   overflow: hidden;
 }
 
-div.scrollheading {
+.scrollheading {
   width: 800px;
   height: 95px;
   top: 380px;
@@ -130,7 +130,7 @@ div.scrollheading {
   z-index: 200;
 }
 
-div.attitude {
+.attitude {
   width: 300px;
   height: 400px;
   top: -50px;
@@ -140,7 +140,7 @@ div.attitude {
   overflow: hidden;
 }
 
-div.attitude .box {
+.attitude .box {
   position: absolute;
   top: 0;
   left: 0;
