@@ -120,6 +120,14 @@ body {
   z-index: 200;
 }
 
+#pathWarnflag {
+  visibility: hidden;
+}
+
+#tspanWarnflag {
+  visibility: hidden;
+}
+
 .attitude {
   width: 300px;
   height: 400px;

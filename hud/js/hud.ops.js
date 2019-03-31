@@ -109,10 +109,23 @@ $(document).keyup(function(e) {
     case 87:    // "w" as in show proximity [W]arnings  
     case 105:   // "9" - toggle traffic image
         showWarning = !showWarning;
+        setWarningBox();
         break;
     }
 });
 
+function setWarningBox() {
+    var warnflagBox = $('#pathWarnflag');
+    var warnflagText = $('#tspanWarnflag');
+    if (showWarning) {
+        warnflagBox.css('visibility','visible');
+        warnflagText.css('visibility', 'visible');
+    }
+    else {
+        warnflagBox.css('visibility','hidden');
+        warnflagText.css('visibility', 'hidden');
+    }
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //      JSON output returned by Stratux from a POST to http://192.168.10.1/getSituation (AHRS data)
@@ -334,3 +347,9 @@ setInterval(function() {
     }
 
 }, 50);
+
+/*--------------------------------------------------------------------------------------------------    
+                                    Settings.json example 
+----------------------------------------------------------------------------------------------------
+    {"showWarning":true,"vspeed_0":38,"vspeed_1":44,"vspeed_2":70, "vspeed_3":108,"vspeed_4":140}
+----------------------------------------------------------------------------------------------------*/
