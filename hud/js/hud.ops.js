@@ -187,6 +187,7 @@ var warningAltitude = document.getElementById("tspanWarnAltitude");
 var warningDistance = document.getElementById("tspanWarnDistance");
 var warningBearing = document.getElementById("tspanWarnBearing");
 
+// variables for proximity warning calculations
 var lastIdent = "";
 var lastAlt = 0;
 var lastDist = 0;
@@ -268,7 +269,15 @@ function onMessage(evt) {
     else if (rcvCount >= 20) {
         console.log("Show Warning = " + showWarning + ", " +  reg + " - Brg: " + brng + ", Dist: " + dist + ", Alt: " +  alt);
         rcvCount = 0;
-        if (dist <= warning_distance) {
+        if (dist > warning_distance && reg == lastIdent) {
+            isWarning = false;
+            lastIdent = "";
+            lastAlt = 0;
+            lastDist = 0;
+            lastBrng = 0;
+            trafficWarning.css('visibility', 'hidden');
+        }
+        else if (dist <= warning_distance) {
             if (alt <= myAlt + warning_altitude && alt >= myAlt - warning_altitude && reg != lastIdent) {
                 if (brng != 0 ) { 
                     isWarning = true;
@@ -277,6 +286,9 @@ function onMessage(evt) {
                     warningDistance.textContent = dist;
                     warningBearing.textContent = brng;
                     lastIdent = reg;
+                    lastAlt = alt;
+                    lastDist = dist;
+                    lastBrng = brng;
                 }
             }
         }
