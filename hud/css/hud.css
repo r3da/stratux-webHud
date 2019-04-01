@@ -16,7 +16,7 @@ body {
   left: -150px;
   position: relative;
   overflow: hidden;
-  transform: scale(0.74,0.80);
+  transform: scale(0.74,0.80) rotate(180deg);
 }
 
 .scrollspeed {
