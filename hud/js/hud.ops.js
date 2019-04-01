@@ -343,11 +343,11 @@ setInterval(function() {
         headingtape.css('transform', 'translateX('+ hdgticks + 'px');
         
         // set the skid-slip ball position
-        if (slipskid < -21) {
-            slipskid = -21;
+        if (slipskid < -17) {
+            slipskid = -17;
         }
-        else if (slipskid > 21) {
-            slipskid = 21;
+        else if (slipskid > 17) {
+            slipskid = 17;
         }
         var ballposition = ball_center + (slipskid * ball_offset);
         //console.log("slipskid: " + slipskid + ", ball position: " + ballposition)
