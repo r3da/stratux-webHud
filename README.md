@@ -29,7 +29,8 @@ Reboot the Stratux RPi.  Using your favorite browser on iPad, phone, desktop, et
 Once operation of the AHRS display is confirmed, plug your video cable and verify the HUD projector is working. (I'm using a Kivic HUD, I connected the Kivic HUD device via the 3.5mm TRSS composite video cable from the Stratux jack to the external camera jack on the back of the Kivic.)
 
 If you need to tweak the view of the HUD screen, the div.hud class in the hud.css file can be edited at the setting transform: scale(x, y) to scale the 2 dimensions to your liking, or even rotate 180° if mounting the HUD from the top of the windscreen. It is suggested to not change values for masks and tapes, as they are calibrated by number of pixels to offset based on the speed, altitude, or heading values being applied.
-![Image of ScaleSetting](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/scalesetting.png)
+![Image of ScaleSetting](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/hudcss1.png)
+![Image of ScaleSetting](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/hudcss2.png)
 
 There are also key events that are active in javascript, for performing most of the functions exposed by Stratux's REST interface. Currently, these will only work when viewing the HUD screen on your laptop/desktop:
 
