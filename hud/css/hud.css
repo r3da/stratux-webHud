@@ -166,10 +166,10 @@ body {
 
 #leftbar {
   height: 83px;
-  width: 5px;
+  width: 10px;
   position: absolute;
   top: 311px;
-  left: 453px;
+  left: 450px;
   visibility: visible;
   z-index: 210;
   transform: scale(.54,.35);
@@ -177,10 +177,10 @@ body {
 
 #rightbar {
   height: 83px;
-  width: 5px;
+  width: 10px;
   position: absolute;
   top: 311px;
-  left: 479px;
+  left: 478px;
   visibility: visible;
   z-index: 210;
   transform: scale(.54,.35);
