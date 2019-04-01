@@ -117,7 +117,7 @@ body {
   top: 60px;
   left: 30px;
   visibility: hidden; 
-  z-index: 200;
+  z-index: 250;
 }
 
 #warningflag {

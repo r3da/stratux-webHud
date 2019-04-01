@@ -162,8 +162,8 @@ var gnumber = 0;
 // this needs to be replaced by user-defined criteria. 
 //
 /////////////////////////////////////////////////////////////////////////
-var warning_distance = 10;   // miles
-var warning_altitude = 8000; // feet
+var warning_distance = 2;   // miles
+var warning_altitude = 800; // feet
 
 // tape offsets, in pixels per unit of measure
 const spd_offset = 4.8;    // Knots
