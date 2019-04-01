@@ -120,12 +120,26 @@ body {
   z-index: 200;
 }
 
-#pathWarnflag {
+#warningflag {
+  height: 35px;
+  width: 40px;
+  position: absolute;
+  top: 386px;
+  left: 100px;
   visibility: hidden;
+  z-index: 200;
+  transform: scale(1.25, 1.25)
 }
 
-#tspanWarnflag {
-  visibility: hidden;
+#gmeter {
+  height: 40px;
+  width: 80px;
+  position: absolute;
+  top: 380px;
+  left: 725px;
+  visibility: visible;
+  z-index: 200;
+  transform: scale(1.25, 1.25);
 }
 
 .attitude {

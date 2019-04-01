@@ -10,10 +10,4 @@
   <text style="line-height:1.25;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start" x="6.351" y="110.009" transform="scale(.99977 1.00023)" font-weight="700" font-size="4.587" font-family="sans-serif" letter-spacing="0" word-spacing="0" fill="#fff" stroke-width=".265">
     <tspan x="6.351" y="110.009">MSL</tspan>
   </text>
-  <text style="line-height:1.25;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center" x="34.104" y="153.842" transform="scale(1.03066 .97025)" font-weight="700" font-size="8.745" letter-spacing="0" word-spacing="0" font-family="sans-serif" text-anchor="middle" fill="#00bbeb" stroke-width=".637">
-    <tspanid="tspanGMeter" x="34.104" y="153.842" style="-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center">1.0</tspan>
-  </text>
-  <text style="line-height:1.25;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start" x="42.717" y="154.896" transform="scale(1.03981 .96171)" font-weight="700" font-size="7.206" letter-spacing="0" word-spacing="0" font-family="sans-serif" fill="#00bbeb" stroke-width=".416">
-    <tspan x="42.717" y="154.896">G</tspan>
-  </text>
 </svg>

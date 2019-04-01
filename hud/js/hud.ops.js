@@ -115,16 +115,8 @@ $(document).keyup(function(e) {
 });
 
 function setWarningBox() {
-    var warnflagBox = $('#pathWarnflag');
-    var warnflagText = $('#tspanWarnflag');
-    if (showWarning) {
-        warnflagBox.css('visibility','visible');
-        warnflagText.css('visibility', 'visible');
-    }
-    else {
-        warnflagBox.css('visibility','hidden');
-        warnflagText.css('visibility', 'hidden');
-    }
+    var warningflag = $('#warningflag');
+    showWarning == true ? warningflag.css('visibility','visible') : warningflag.css('visibility','hidden');
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -335,7 +327,7 @@ setInterval(function() {
         speedbox.textContent = speed;
         altitudebox.textContent = altitude;
         headingbox.textContent = pad(heading, 3);
-        gbox.textContent = gnumber;
+        gbox.textContent = gnumber + " G";
 
         var speedticks = (speed * spd_offset);
         var altticks = (altitude * alt_offset);
