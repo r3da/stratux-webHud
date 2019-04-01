@@ -169,7 +169,7 @@ var warning_altitude = 800; // feet
 const spd_offset = 4.8;    // Knots
 const alt_offset = .4792;  // Feet MSL
 const hdg_offset = 4.720;  // Degrees
-const ball_offset = 4;     // Degrees
+const ball_offset = 3;     // Degrees
 const ball_center = 433;   // this is "center" of the slip-skid indicator
 
 var speedbox = document.getElementById('tspanSpeed');
@@ -343,6 +343,12 @@ setInterval(function() {
         headingtape.css('transform', 'translateX('+ hdgticks + 'px');
         
         // set the skid-slip ball position
+        if (slipskid < -21) {
+            slipskid = -21;
+        }
+        else if (slipskid > 21) {
+            slipskid = 21;
+        }
         var ballposition = ball_center + (slipskid * ball_offset);
         //console.log("slipskid: " + slipskid + ", ball position: " + ballposition)
         ball.css('left', ballposition + 'px');
