@@ -103,7 +103,7 @@ body {
 
 #headingtape {
   position: absolute;
-  top: 50px;
+  top: 46px;
   left: -598px;
   width:3900px;
   height: 62px;
@@ -150,7 +150,7 @@ body {
   left: 273px;
   visibility: visible;
   z-index: 200;
-  transform: scale(.4,.25);
+  transform: scale(.4,.3);
 }
 
 #ball {
