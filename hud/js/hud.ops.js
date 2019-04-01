@@ -169,7 +169,7 @@ var warning_altitude = 8000; // feet
 const spd_offset = 4.8;    // Knots
 const alt_offset = .4792;  // Feet MSL
 const hdg_offset = 4.720;  // Degrees
-const ball_offset = 4;     // Degrees
+const ball_offset = 7.5;   // Degrees
 const ball_center = 433;   // this is "center" of the slip-skid indicator
 
 var speedbox = document.getElementById('tspanSpeed');
@@ -325,7 +325,7 @@ setInterval(function() {
         altitude = Math.trunc(obj.GPSAltitudeMSL);
         heading = Math.trunc(obj.GPSTrueCourse);
         gnumber = obj.AHRSGLoad.toFixed(1);
-        slipskid = Math.trunc(obj.AHRSSlipSkid)
+        slipskid = Math.trunc(obj.AHRSSlipSkid);
 
         // set the speed, altitude, heading, and GMeter values
         speedbox.textContent = speed;
