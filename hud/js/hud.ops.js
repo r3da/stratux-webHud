@@ -147,6 +147,7 @@ var showWarning = false;
 var speedtape = $('#speedtape');
 var alttape = $('#alttape');
 var headingtape = $('#headingtape');
+var ball = $('#ball');
 var trafficWarning = $('#trafficWarning');
 var attitude = $.attitudeIndicator('#attitude', 'attitude', {roll:50, pitch:-20, size:600, showBox : true});
 var wsOpen = false;
@@ -168,6 +169,8 @@ var warning_altitude = 8000; // feet
 const spd_offset = 4.8;    // Knots
 const alt_offset = .4792;  // Feet MSL
 const hdg_offset = 4.720;  // Degrees
+const ball_offset = 4;     // Degrees
+const ball_center = 433;   // this is "center" of the slip-skid indicator
 
 var speedbox = document.getElementById('tspanSpeed');
 var altitudebox = document.getElementById('tspanAltitude');
@@ -322,6 +325,7 @@ setInterval(function() {
         altitude = Math.trunc(obj.GPSAltitudeMSL);
         heading = Math.trunc(obj.GPSTrueCourse);
         gnumber = obj.AHRSGLoad.toFixed(1);
+        slipskid = Math.trunc(obj.AHRSSlipSkid)
 
         // set the speed, altitude, heading, and GMeter values
         speedbox.textContent = speed;
@@ -336,7 +340,13 @@ setInterval(function() {
         // set the coordinates of the tapes
         speedtape.css('transform', 'translateY(' + speedticks + 'px)');
         alttape.css('transform', 'translateY(' + altticks + 'px');
-        headingtape.css('transform', 'translateX('+ hdgticks + 'px'); 
+        headingtape.css('transform', 'translateX('+ hdgticks + 'px');
+        
+        // set the skid-slip ball position
+        var ballposition = ball_center + (slipskid * ball_offset);
+        //console.log("slipskid: " + slipskid + ", ball position: " + ballposition)
+        ball.css('left', ballposition + 'px');
+
    });
     
     if (wsOpen) {
