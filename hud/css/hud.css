@@ -12,7 +12,7 @@ body {
 .hud {
   height: 480px;
   width: 960px;
-  top: -60px;
+  top: -53px;
   left: -150px;
   position: relative;
   overflow: hidden;
