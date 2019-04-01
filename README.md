@@ -42,14 +42,16 @@ There are also key events that are active in javascript, for performing most of 
     "b" or numeric keypad "5" will re[B]oot"
     "k" or numeric keypad "7" will [K]ill (shutdown) stratux
     "l" or numeric keypad "0" will re[L]oad the web page (like after making adjustment to scale, etc.)
-    "t" or numeric keypad "9" will toggle a [T]raffic popup (not yet populated with data)  
+    "w" or numeric keypad "9" will toggle a [W]arn flag, this lets you know the HUD is in Proximity Warning Mode  
         
+
+
+Currently testing Bluetooth functionality on the Stratux RPi with a paired bluetooth numeric keypad. This allows the functions above to be keyed in when in flight. (Future possibility would be to selectively enable some functions, for example, based on speed.) 
+
 The next steps I would like to do with this are:
 
-(1) Get bluetooth functioning on the Stratux RPi so that a bluetooth numeric keypad can be paired. This will allow the functions above to be keyed in when in flight. (or more sophisticated, only do some when speed > x, etc.) 
+(1) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing either the /img/speed_tape.png image directly, or edit /img/speed_tape.svg and save it as a png image. The current speed_tape.png image has the V-speeds for my Zenith CH650. (Note, the blue color at 60KT and the letters "BG" above that is the Best Glide speed for the CH650.)
 
-(2) Add a configuration page where the user can enter their aircraft's V-speeds. Those V-speeds will be used to programmatically add the appropriate color bands on the speed tape on the left.  For now it will require editing either the /img/speed_tape.png image directly, or edit /img/speed_tape.svg and save it as a png image. The current speed_tape.png image has the V-speeds for my Zenith CH650. (Note, the blue color at 60KT and the letters "BG" above that is the Best Glide speed for the CH650.)
-
-(3) Add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's detailed information, including the AC identifier, distance, altitude, speed, and relative bearing from me."  
+(2) Add to configuration the ability to set the criteria for displaying a traffic alert flag, e.g., "If another aircraft comes within X miles of me and plus or minus X feet from my altitude, display a red alert box with the aircraft's detailed information, including the AC identifier, distance, altitude, speed, and relative bearing from me."  
 
 A HUGE THANKS goes out to John Marzulli for his work on an aircraft HUD, which inspired me to do this as a web app on the stratux itself. John's work can be found at: https://github.com/JohnMarzulli/StratuxHud.
