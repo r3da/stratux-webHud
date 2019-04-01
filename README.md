@@ -33,6 +33,7 @@ If you need to tweak the view of the HUD screen, the div.hud class in the hud.cs
 ![Image of ScaleSetting](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/hudcss1.png)
 
 ![Image of ScaleSetting](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/hudcss2.png)
+![Image of UpsideDown](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/upsidedown.png)
 
 There are also key events that are active in javascript, for performing most of the functions exposed by Stratux's REST interface. Currently, these will only work when viewing the HUD screen on your laptop/desktop:
 
