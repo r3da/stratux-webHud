@@ -36,7 +36,7 @@ If you need to tweak the view of the HUD screen, the div.hud class in the hud.cs
 
 ![Image of UpsideDown](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/upsideDown.png)
 
-There are also key events that are active in javascript, for performing most of the functions exposed by Stratux's REST interface. Currently, these will only work when viewing the HUD screen on your laptop/desktop:
+There are also keydown events that are trapped in javascript, for performing most of the functions exposed by Stratux's REST interface. Currently, these will only work when viewing the HUD screen on your laptop/desktop:
 
     "c" or numeric keypad "1" will [C]age AHRS
     "a" or numeric keypad "2" will calibrate [A]HRS
@@ -47,9 +47,7 @@ There are also key events that are active in javascript, for performing most of 
     "l" or numeric keypad "0" will re[L]oad the web page (like after making adjustment to scale, etc.)
     "w" or numeric keypad "9" will toggle a [W]arn flag, this lets you know the HUD is in Proximity Warning Mode  
         
-
-
-Currently testing Bluetooth functionality on the Stratux RPi with a paired bluetooth numeric keypad. This allows the functions above to be keyed in when in flight. (Future possibility would be to selectively enable some functions, for example, based on speed.) 
+(Note: I am currently testing Bluetooth functionality on the Stratux RPi with a paired bluetooth numeric keypad. This would allow the functions above to be keyed in when in flight. Preliminary results are mixed. The Stratux has bluetooth disabled by default, it appears this is for optimization of the UART for the 2 SDR's. After enabling bluetooth, the keypad response is sluggish and hit or miss.)
 
 The next steps I would like to do with this are:
 
