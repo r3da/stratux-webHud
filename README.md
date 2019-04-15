@@ -14,14 +14,17 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 I used the wired nic on the Stratux RPi for downloading updates. Steps 4-6 below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  under the heading "Minimum Environment for GUI Applications."
 
    1. sudo raspi-config
+   
       a. select Advanced Options
       b. select Expand Filesystem
       c. allow system reboot
+   
    2. sudo apt-get update
    3. sudo apt-get upgrade
    4. sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
    5. sudo apt-get install --no-install-recommends chromium-browser
    6. sudo nano /etc/xdg/openbox/autostart
+      
       a. Copy the lines from the file https://github.com/N129BZ/stratux-webHud/tree/master/startup%20script and paste them at the bottom of your autostart file.
    
 Recursively copy the hud folder to the stratux folder /var/www/
