@@ -26,7 +26,7 @@ I used the wired nic on the Stratux RPi for downloading updates. Terminal into t
       
 Copy the lines from the file https://github.com/N129BZ/stratux-webHud/tree/master/startup%20script/autostart and paste them at the bottom of your autostart file.
    
-Recursively copy the hud folder to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can simply take the SD card out of the pi and mount it on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little more work to copy from Windows because the files have to be transferred using a terminal program like PuTTY, and we need to do that in a few steps...
+Recursively copy the hud folder to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can simply take the SD card out of the pi and mount it on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little more work to copy from Windows because the files have to be transferred using a terminal program like PuTTY, and that will take a few steps...
 
 1.  create hud directories : /home/pi/hud    and   /var/www/hud   
 
