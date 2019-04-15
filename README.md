@@ -22,21 +22,8 @@ I used the wired nic on the Stratux RPi for downloading updates. Steps 4-6 below
    4. sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
    5. sudo apt-get install --no-install-recommends chromium-browser
    6. sudo nano /etc/xdg/openbox/autostart
-      a. add the following lines at the bottom of the file to run Chromium in kiosk mode.  #Note that the 3nd line below #Start Chromium in kiosk mode is a continuation of line 2, and should be those should all be on one line in the autostart file.
+      a. Copy the lines from the file https://github.com/N129BZ/stratux-webHud/tree/master/startup%20script and paste them at the bottom of your autostart file.
    
-   ## Disable any form of screen saver / screen blanking / power management
-   xset s off
-   xset s noblank
-   xset -dpms
-
-   ## Allow quitting the X server with CTRL-ATL-Backspace
-   setxkbmap -option terminate:ctrl_alt_bksp
-
-   ## Start Chromium in kiosk mode
-   sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
-   sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
-   chromium-browser --disable-infobars --kiosk 'http://localhost/hud/hud.html'
- 
 Recursively copy the hud folder to the stratux folder /var/www/
  
 This should give you /var/www/hud/ and its subdirectories css, img, and js.
