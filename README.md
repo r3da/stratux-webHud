@@ -15,9 +15,9 @@ I used the wired nic on the Stratux RPi for downloading updates. Steps 4-6 below
 
    1.  sudo raspi-config
    
-      a. select Advanced Options
-      b. select Expand Filesystem
-      c. allow system reboot
+      select Advanced Options
+      select Expand Filesystem
+      allow system reboot
    
    2.  sudo apt-get update
    3.  sudo apt-get upgrade
