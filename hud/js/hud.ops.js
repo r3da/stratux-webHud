@@ -78,6 +78,9 @@ $(document).keyup(function(e) {
     var kc = e.keyCode;
 
     switch(kc) {
+    case 81: // "q" as in QWUAT IS THIS
+        fetch("http://192.168.10.1/getSettings",{method: 'POST', mode: 'cors'}).then(function(response) {console.log(response.text)});
+        break;
     case 67:    // "c" as in [C]age AHRS
     case 97:    // "1"
         fetch("http://192.168.10.1/cageAHRS", {method: 'POST', mode: 'no-cors'}).then(console.log("POSTed http://192.168.10.1/cageAHRS"));
@@ -368,8 +371,32 @@ setInterval(function() {
 
 }, 50);
 
-/*--------------------------------------------------------------------------------------------------    
-                                    Settings.json example 
-----------------------------------------------------------------------------------------------------
-    {"showWarning":true,"vspeed_0":38,"vspeed_1":44,"vspeed_2":70, "vspeed_3":108,"vspeed_4":140}
-----------------------------------------------------------------------------------------------------*/
+function getSettings() {
+
+}
+
+function setSettings() {
+    
+    var url = "http://192.168.10.1/setSettings";
+    
+  }
+/*-----------------------------------------------------------   
+                    Settings.json NOTES: 
+-------------------------------------------------------------
+    1.) speedUnits is either [K]noths or [M]iles per hour 
+    2.) altitudeUnits is either [F]EET or [M]ETERS
+    3.) distanceUnits is either [M]ILES or [K]ILOMETERS
+-------------------------------------------------------------
+  {"speedUnits":"KPH",
+   "altitudeUnits":"F",
+   "distanceUnits":"M",
+   "showWarnings":true,
+   "warnProximityDistance":2,
+   "warnProximityAltitude":800,
+   "vs0":38,
+   "vs1":44,
+   "vfe":70, 
+   "vno":108,
+   "vne":140,
+   "bestGlide":70}
+-------------------------------------------------------------*/
