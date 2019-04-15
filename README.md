@@ -9,16 +9,33 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 ![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoRPi.jpg)
 ![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoKivic.jpg)
 
-Rough instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
+#Instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
 
-I used the wired nic on the Stratux RPi for downloading updates. The steps below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  starting at the heading "Minimum Environment for GUI Applications" after steps 1 and 2 below.
+I used the wired nic on the Stratux RPi for downloading updates. Steps 4-6 below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  under the heading "Minimum Environment for GUI Applications."
 
-   1. sudo apt-get update
-   2. sudo apt-get upgrade
-   3. sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
-   4. sudo apt-get install --no-install-recommends chromium-browser
-   5. sudo nano /etc/xdg/openbox/autostart
-   6. add the contents of the autostart file in hud/scripts found in this repository
+   1. sudo raspi-config
+      a. select Advanced Options
+      b. select Expand Filesystem
+      c. allow system reboot
+   2. sudo apt-get update
+   3. sudo apt-get upgrade
+   4. sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
+   5. sudo apt-get install --no-install-recommends chromium-browser
+   6. sudo nano /etc/xdg/openbox/autostart
+      a. add the following lines at the bottom of the file to run Chromium in kiosk mode.  #Note that the 3nd line below #Start Chromium in kiosk mode is a continuation of line 2, and should be those should all be on one line in the autostart file.
+   
+   ## Disable any form of screen saver / screen blanking / power management
+   xset s off
+   xset s noblank
+   xset -dpms
+
+   ## Allow quitting the X server with CTRL-ATL-Backspace
+   setxkbmap -option terminate:ctrl_alt_bksp
+
+   ## Start Chromium in kiosk mode
+   sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
+   sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
+   chromium-browser --disable-infobars --kiosk 'http://localhost/hud/hud.html'
  
 Recursively copy the hud folder to the stratux folder /var/www/
  
