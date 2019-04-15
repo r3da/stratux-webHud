@@ -8,7 +8,7 @@
 		}, options );
 
 		var constants = {
-			pitch_bound:30
+			pitch_bound:90
 		}
 
 		placeholder.each(function(){
