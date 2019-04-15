@@ -25,7 +25,7 @@ I used the wired nic on the Stratux RPi for downloading updates. Steps 4-6 below
    5.  sudo apt-get install --no-install-recommends chromium-browser
    6.  sudo nano /etc/xdg/openbox/autostart
       
-      a. Copy the lines from the file https://github.com/N129BZ/stratux-webHud/tree/master/startup%20script and paste them at the bottom of your autostart file.
+Copy the lines from the file https://github.com/N129BZ/stratux-webHud/tree/master/startup_script and paste them at the bottom of your autostart file.
    
 Recursively copy the hud folder to the stratux folder /var/www/
  
