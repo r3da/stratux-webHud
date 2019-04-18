@@ -13,11 +13,7 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 
 I used the wired nic on the Stratux RPi for downloading updates. Terminal into the pi using ssh from Linux or Apple, or on Windows 10 use puTTy, and complete the following steps. (Steps 4-6 below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  under the heading "Minimum Environment for GUI Applications.")
 
-1.  sudo raspi-config
-  select Advanced Options
-  select Expand Filesystem
-  allow system reboot
-   
+1.  sudo raspi-config.  Select Advanced Options, select Expand Filesystem.  Perform a system reboot.
 2.  sudo apt-get update
 3.  sudo apt-get upgrade
 4.  sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
