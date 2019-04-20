@@ -13,7 +13,7 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 
 # Instructions for a reasonably minimum footprint install on the Stratux raspbian stretch lite image:
 
-I used the wired nic on the Stratux RPi for downloading updates. Terminal into the pi using ssh from Linux or Apple, or on Windows 10 use puTTy, and complete the following steps. (Steps 4-6 below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  under the heading "Minimum Environment for GUI Applications.")
+I used the wired nic on the Stratux RPi for downloading updates. Terminal into the pi using ssh from Linux or Apple, or on Windows 10 use a terminal program like puTTY, and complete the following steps. (Steps 4-6 below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  under the heading "Minimum Environment for GUI Applications.")
 
 1.  Expand the filesystem:
 ````
