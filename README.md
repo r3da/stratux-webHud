@@ -14,17 +14,21 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 I used the wired nic on the Stratux RPi for downloading updates. Terminal into the pi using ssh from Linux or Apple, or on Windows 10 use puTTy, and complete the following steps. (Steps 4-6 below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  under the heading "Minimum Environment for GUI Applications.")
 
 1.  Expand the filesystem:
+````
 sudo raspi-config.  Select Advanced Options, select Expand Filesystem.  Perform a system reboot.
-
+````
 2.  Update and upgrade the distribution:
+````
 sudo apt-get update && sudo apt-get upgrade -y upgrade-dist
-
+````
 3.  Install the xserver components:
+````
 sudo apt-get install --no-install-recommends xserver-xorg xinit xserver-xorg-video-fbdev lxde lxde-common lightdm
-
+````
 4.  Install the Chromium browser:
+````
 sudo apt-get install --no-install-recommends chromium-browser
-
+````
 5.  Create the hidden .xsession startup file, sudo nano ~/.xsession, add these lines:
 ````
 # Disable any form of screen saver / screen blanking / power management
@@ -39,18 +43,21 @@ sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/
 # Open chrome in incognito mode + kiosk mode
 /usr/bin/chromium-browser --window-size=960,480 --window-position=0,0 --kiosk "http://localhost/hud/hud.html"
 ````
-
 6. Recursively copy the hud folder to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can simply take the SD card out of the pi and mount it on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little more work to copy from Windows because the files have to be transferred using a terminal program like PuTTY, and that will take a few steps...
-
+````
 1.  create hud directories : /home/pi/hud    and   /var/www/hud   
-
 2.  use pscp to copy hud files to the pi:  pscp -r <your hud folder>\*.* pi@192.168.10.1:/home/pi/hud/
+3.  terminal into the pi and move the files:  sudo mv -r /home/pi/hud/* /var/www/hud/
 
-3.  terminal into the pi and move the files:  sudo mv -r /home/pi/hud/* /var/www/hud/ 
-   
-   
 This should give you /var/www/hud/ and its subdirectories css, img, and js.
- 
+````
+7.  Set the pi for desktop auto-login:
+````
+sudo rasbi-config
+select Boot Options
+select Desktop Autologin Desktop GUI, automatically logged in as ‘pi’ user
+````
+
 Reboot the Stratux RPi.  Using your favorite browser on iPad, phone, desktop, etc., join the stratux wifi network and go ahead and browse to http://192.168.10.1/hud/hud.html if everything is working, you should see an AHRS display with solid black background. Moving the Stratux should show very smooth movement of the AHRS (20 frames/sec.)
  
 Once operation of the AHRS display is confirmed, plug your video cable and verify the HUD projector is working. (I'm using a Kivic HUD, I connected the Kivic HUD device via the 3.5mm TRSS composite video cable from the Stratux jack to the external camera jack on the back of the Kivic.)
