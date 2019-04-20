@@ -19,7 +19,9 @@ sudo raspi-config.  Select Advanced Options, select Expand Filesystem.  Perform 
 ````
 2.  Update and upgrade the distribution:
 ````
-sudo apt-get update && sudo apt-get upgrade -y upgrade-dist
+sudo apt-get update 
+sudo apt-get upgrade
+sudo apt-get upgrade-dist
 ````
 3.  Install the xserver components:
 ````
