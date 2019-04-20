@@ -32,7 +32,7 @@ sudo apt-get install --no-install-recommends xserver-xorg xinit xserver-xorg-vid
 ````
 4.  Install the Chromium browser:
 ````
-sudo apt-get install --no-install-recommends chromium-browser
+sudo apt-get install chromium-browser
 ````
 5.  Create the hidden .xsession startup file, sudo nano ~/.xsession, add these lines:
 ````
