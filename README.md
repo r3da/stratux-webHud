@@ -15,7 +15,10 @@ I used the wired nic on the Stratux RPi for downloading updates. Terminal into t
 
 1.  Expand the filesystem:
 ````
-sudo raspi-config.  Select Advanced Options, select Expand Filesystem.  Perform a system reboot.
+sudo raspi-config  
+select Advanced Options
+select Expand Filesystem
+exit and allow system reboot.
 ````
 2.  Update and upgrade the distribution:
 ````
