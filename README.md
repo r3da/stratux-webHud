@@ -34,8 +34,10 @@ sudo apt-get install --no-install-recommends xserver-xorg xinit xserver-xorg-vid
 ````
 sudo apt-get install chromium-browser
 ````
-5.  Create the hidden .xsession startup file, sudo nano ~/.xsession, add these lines:
+5.  Create a hidden .xsession startup file and add the necessary startup commands:
 ````
+sudo nano ~/.xsession
+
 # Disable any form of screen saver / screen blanking / power management
 xset s off
 xset s noblank
