@@ -13,20 +13,36 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 
 I used the wired nic on the Stratux RPi for downloading updates. Terminal into the pi using ssh from Linux or Apple, or on Windows 10 use puTTy, and complete the following steps. (Steps 4-6 below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  under the heading "Minimum Environment for GUI Applications.")
 
-1.  sudo raspi-config.  Select Advanced Options, select Expand Filesystem.  Perform a system reboot.
-2.  sudo apt-get update
-3.  sudo apt-get upgrade
-4.  sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
-5.  sudo apt-get install --no-install-recommends chromium-browser
-6.  sudo nano /etc/xdg/openbox/autostart
-      
-Copy the lines from the file https://github.com/N129BZ/stratux-webHud/tree/master/startup%20script/autostart and paste them at the bottom of your autostart file.
+1.  Expand the filesystem:
+sudo raspi-config.  Select Advanced Options, select Expand Filesystem.  Perform a system reboot.
+
+2.  Update and upgrade the distribution:
+sudo apt-get update && sudo apt-get upgrade -y upgrade-dist
+
+3.  Install the xserver components:
+sudo apt-get install --no-install-recommends xserver-xorg xinit xserver-xorg-video-fbdev lxde lxde-common lightdm
+
+4.  Install the Chromium browser:
+sudo apt-get install --no-install-recommends chromium-browser
+
+6.  Create the hidden .xsession startup file, sudo nano ~/.xsession, add these lines:
+````# Disable any form of screen saver / screen blanking / power management
+````xset s off
+````xset s noblank
+````xset -dpms
+
+````# Start Chromium in kiosk mode
+````sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
+````sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences      
+
+````# Open chrome in incognito mode + kiosk mode
+````/usr/bin/chromium-browser --window-size=960,480 --window-position=0,0 --kiosk "http://localhost/hud/hud.html"
    
 Recursively copy the hud folder to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can simply take the SD card out of the pi and mount it on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little more work to copy from Windows because the files have to be transferred using a terminal program like PuTTY, and that will take a few steps...
 
 1.  create hud directories : /home/pi/hud    and   /var/www/hud   
 
-2.  use pscp to copy hud files to the pi:  pscp -r c:\myhudfolder\hud\*.* pi@192.168.10.1:/home/pi/hud/
+2.  use pscp to copy hud files to the pi:  pscp -r <your hud folder>\*.* pi@192.168.10.1:/home/pi/hud/
 
 3.  terminal into the pi and move the files:  sudo mv -r /home/pi/hud/* /var/www/hud/ 
    
