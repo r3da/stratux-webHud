@@ -26,18 +26,20 @@ sudo apt-get install --no-install-recommends xserver-xorg xinit xserver-xorg-vid
 sudo apt-get install --no-install-recommends chromium-browser
 
 6.  Create the hidden .xsession startup file, sudo nano ~/.xsession, add these lines:
-````# Disable any form of screen saver / screen blanking / power management
-````xset s off
-````xset s noblank
-````xset -dpms
+````
+# Disable any form of screen saver / screen blanking / power management
+xset s off
+xset s noblank
+xset -dpms
 
-````# Start Chromium in kiosk mode
-````sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
-````sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences      
+# Start Chromium in kiosk mode
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences      
 
-````# Open chrome in incognito mode + kiosk mode
-````/usr/bin/chromium-browser --window-size=960,480 --window-position=0,0 --kiosk "http://localhost/hud/hud.html"
-   
+# Open chrome in incognito mode + kiosk mode
+/usr/bin/chromium-browser --window-size=960,480 --window-position=0,0 --kiosk "http://localhost/hud/hud.html"
+````
+
 Recursively copy the hud folder to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can simply take the SD card out of the pi and mount it on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little more work to copy from Windows because the files have to be transferred using a terminal program like PuTTY, and that will take a few steps...
 
 1.  create hud directories : /home/pi/hud    and   /var/www/hud   
