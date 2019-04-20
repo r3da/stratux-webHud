@@ -41,11 +41,11 @@ xset s off
 xset s noblank
 xset -dpms
 
-# Start Chromium in kiosk mode
+# make sure chromium error files are "cleaned up"
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences      
 
-# Open chrome in incognito mode + kiosk mode
+# Start chromium in kiosk mode
 /usr/bin/chromium-browser --window-size=960,480 --window-position=0,0 --kiosk "http://localhost/hud/hud.html"
 ````
 6. Recursively copy the hud folder to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can simply take the SD card out of the pi and mount it on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little more work to copy from Windows because the files have to be transferred using a terminal program like PuTTY, and that will take a few steps...
