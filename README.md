@@ -62,7 +62,7 @@ This should give you /var/www/hud/ and its subdirectories css, img, and js.
 ````
 7.  Set the pi for desktop auto-login:
 ````
-sudo rasbi-config
+sudo raspi-config
 select Boot Options
 select Desktop Autologin Desktop GUI, automatically logged in as ‘pi’ user
 ````
