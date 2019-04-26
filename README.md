@@ -2,6 +2,8 @@
 
 stratux-webHud is a simple Html application that is displayed on a web page in the Chromium browser in Kiosk mode, running on the Stratux RPi itself.  You then use either a HDMI cable from the Stratux to a Hudly or other HDMI capable projector, or a 3.5mm TRRS cable from the composite video jack on the Stratux to the backup camera port on the Kivic HUD.   
 
+This application has been tested on Raspberry pi 2B and 3B.  I am currently testing on a Pi Zero W, using a USB expansion card, and also working on a configuration layer that will be accessible from the Stratux settings web page.
+
 An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-video-thinline-35mm-cable-assemblies-male-to-male-4-circuit-tip-ring-ring-sleeve-trrs
 
 ![Image of Screen1](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/InTurn.png)
@@ -9,24 +11,65 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 ![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoRPi.jpg)
 ![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoKivic.jpg)
 
-Rough instructions for an absolute minimum footprint install on the Stratux raspbian stretch lite OS:
+# Instructions for a reasonably minimum footprint install on the Stratux raspbian stretch lite image:
 
-I used the wired nic on the Stratux RPi for downloading updates. The steps below were taken directly from https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/  starting at the heading "Minimum Environment for GUI Applications" after steps 1 and 2 below.
+I used the wired nic on the Stratux RPi for downloading updates. Terminal into the pi using ssh from Linux or Apple, or on Windows 10 use a terminal program like puTTY, and complete the following steps. 
 
-   1. sudo apt-get update
-   2. sudo apt-get upgrade
-   3. sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
-   4. sudo apt-get install --no-install-recommends chromium-browser
-   5. sudo nano /etc/xdg/openbox/autostart
-   6. add the contents of the autostart file in hud/scripts found in this repository
- 
-Recursively copy the hud folder to the stratux folder /var/www/
- 
+1.  Expand the filesystem:
+````
+sudo raspi-config  
+select Advanced Options
+select Expand Filesystem
+exit and allow system reboot.
+````
+2.  Update and upgrade the distribution:
+````
+sudo apt-get update 
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+````
+3.  Install the xserver components:
+````
+sudo apt-get install --no-install-recommends xserver-xorg xinit xserver-xorg-video-fbdev lxde lxde-common lightdm
+````
+4.  Install the Chromium browser:
+````
+sudo apt-get install chromium-browser
+````
+5.  Create a hidden .xsession startup file and add the necessary startup commands:
+````
+sudo nano ~/.xsession
+
+# Disable any form of screen saver / screen blanking / power management
+xset s off
+xset s noblank
+xset -dpms
+
+# make sure chromium error files are "cleaned up"
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences      
+
+# Start chromium in kiosk mode with the hud.html web page
+/usr/bin/chromium-browser --window-size=960,480 --window-position=0,0 --kiosk "http://localhost/hud/hud.html"
+````
+6. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can mount the SD card on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little bit more work to copy from Windows. Using a terminal program like PuTTY will take a few steps. Terminal into the pi, create the necessary folders, and then copy & move the files:
+````
+create 2 hud directories : /home/pi/hud    and   /var/www/hud   
+use pscp to copy hud files to the pi:  pscp -r <your hud folder>\*.* pi@192.168.10.1:/home/pi/hud/
+terminal into the pi and move the files:  sudo mv -r /home/pi/hud/* /var/www/hud/
+
 This should give you /var/www/hud/ and its subdirectories css, img, and js.
+````
+7.  Set the pi for desktop auto-login:
+````
+sudo raspi-config
+select Boot Options
+select Desktop Autologin Desktop GUI, automatically logged in as ‘pi’ user
+````
+
+Reboot the Stratux RPi.  Using your favorite browser on iPad, phone, desktop, etc., join the stratux wifi network and browse to http://192.168.10.1/hud/hud.html if everything is working, you should see the AHRS display with solid black background. Physically moving the Stratux should show very smooth movement of the AHRS on the web page. (20 frames/sec.)
  
-Reboot the Stratux RPi.  Using your favorite browser on iPad, phone, desktop, etc., join the stratux wifi network and go ahead and browse to http://192.168.10.1/hud/hud.html if everything is working, you should see an AHRS display with solid black background. Moving the Stratux should show very smooth movement of the AHRS (20 frames/sec.)
- 
-Once operation of the AHRS display is confirmed, plug your video cable and verify the HUD projector is working. (I'm using a Kivic HUD, I connected the Kivic HUD device via the 3.5mm TRSS composite video cable from the Stratux jack to the external camera jack on the back of the Kivic.)
+Once operation of the AHRS display is confirmed, plug in your hud video cable and verify the projector is working. (I'm using a Kivic HUD, I connected the Kivic HUD device via the 3.5mm TRSS composite video cable from the Stratux jack to the external camera jack on the back of the Kivic.)
 
 If you need to tweak the view of the HUD screen, the div.hud class in the hud.css file can be edited at the setting transform: scale(x, y) to scale the 2 dimensions to your liking, or even rotate 180° if mounting the HUD from the top of the windscreen. It is suggested to not change values for masks and tapes, as they are calibrated by number of pixels to offset based on the speed, altitude, or heading values being applied.
 
