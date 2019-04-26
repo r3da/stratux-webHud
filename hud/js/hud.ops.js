@@ -379,24 +379,25 @@ function setSettings() {
     
     var url = "http://192.168.10.1/setSettings";
     
-  }
+}
+
 /*-----------------------------------------------------------   
                     Settings.json NOTES: 
 -------------------------------------------------------------
-    1.) speedUnits is either [K]noths or [M]iles per hour 
-    2.) altitudeUnits is either [F]EET or [M]ETERS
-    3.) distanceUnits is either [M]ILES or [K]ILOMETERS
+    1.) SpeedTapeUnit is either [K]nots or [M]iles per hour 
+    2.) AltitudeTapeUnit is either [F]EET or [M]ETERS
+    3.) WarningDistanceUnit is either [M]ILES or [K]ILOMETERS
 -------------------------------------------------------------
-  {"speedUnits":"KPH",
-   "altitudeUnits":"F",
-   "distanceUnits":"M",
-   "showWarnings":true,
-   "warnProximityDistance":2,
-   "warnProximityAltitude":800,
-   "vs0":38,
-   "vs1":44,
-   "vfe":70, 
-   "vno":108,
-   "vne":140,
-   "bestGlide":70}
+  {"SpeedTapeUnit":"K",
+   "AltitudeTapeUnit":"F",
+   "ShowWarning":"Y",
+   "WarningDistanceUnit":"M",
+   "WarningDistance":2,
+   "WarningAltitude":800,
+   "Vs0":38,
+   "Vs1":44,
+   "Vfe":70, 
+   "Vno":108,
+   "Vne":140,
+   "BestGlide":70}
 -------------------------------------------------------------*/
