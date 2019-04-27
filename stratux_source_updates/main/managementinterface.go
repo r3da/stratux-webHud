@@ -330,6 +330,30 @@ func handleSettingsSetRequest(w http.ResponseWriter, r *http.Request) {
 						globalSettings.WatchList = val.(string)
 					case "GLimits":
 						globalSettings.GLimits = val.(string)
+					case "SpeedTapeUnit":
+						globalSettings.SpeedTapeUnit = val.(string)
+					case "AltitudeTapeUnit":
+						globalSettings.AltitudeTapeUnit = val.(string)	
+					case "ShowWarning":
+						globalSettings.ShowWarning = val.(string)	
+					case "WarningDistanceUnit":
+						globalSettings.WarningDistanceUnit = val.(string)	
+   					case "WarningDistance":
+					    globalSettings.WarningDistance = val.(float64)
+					case "WarningAltitude":
+					    globalSettings.WarningAltitude = val.(float64)
+					case "Vs0":
+					    globalSettings.Vs0 = val.(float64)
+					case "Vs1":
+					    globalSettings.Vs1 = val.(float64)
+					case "Vfe": 
+						globalSettings.Vfe = val.(float64)
+					case "Vno":
+						globalSettings.Vno = val.(float64)
+					case "Vne":
+						globalSettings.Vne = val.(float64)
+					case "BestGlide":
+						globalSettings.BestGlide = val.(float64)
 					case "OwnshipModeS":
 						// Expecting a hex string less than 6 characters (24 bits) long.
 						if len(val.(string)) > 6 { // Too long.
@@ -378,30 +402,6 @@ func handleSettingsSetRequest(w http.ResponseWriter, r *http.Request) {
 					case "WiFiPassphrase":
 						globalSettings.WiFiPassphrase = val.(string)
 						resetWiFi = true
-					case "SpeedTapeUnit":
-						globalSettings.SpeedTapeUnit = val.(string)
-					case "AltitudeTapeUnit":
-						globalSettings.AltitudeTapeUnit = val.(string)	
-					case "ShowWarning":
-						globalSettings.ShowWarning = val.(bool)	
-					case "WarningDistanceUnit":
-						globalSettings.WarningDistanceUnit = val.(string)	
-   					case "WarningDistance":
-					    globalSettings.WarningDistance = val.(float64)
-					case "WarningAltitude":
-					    globalSettings.WarningAltitude = val.(float64)
-					case "Vs0":
-					    globalSettings.Vs0 = val.(float64)
-					case "Vs1":
-					    globalSettings.Vs1 = val.(float64)
-					case "Vfe": 
-						globalSettings.Vfe = val.(float64)
-					case "Vno":
-						globalSettings.Vno = val.(float64)
-					case "Vne":
-						globalSettings.Vne = val.(float64)
-					case "BestGlide":
-						globalSettings.BestGlide = val.(float64)
 					default:
 						log.Printf("handleSettingsSetRequest:json: unrecognized key:%s\n", key)
 					}

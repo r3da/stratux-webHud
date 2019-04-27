@@ -22,17 +22,16 @@
                         </form>
                     </div>
                 </div>
-                <!-- <div class='panel-heading'>HUD</div> -->
                 <div class='panel-body'>
                     <div class="form-group reset-flow">
-                        <!-- Speed units -->
+                        <!-- Speed Tape Unit -->
                         <form name=SpeedTapeUnitForm ng-submit=updateSpeedTapeUnit() novalidate>
                             <input class="col-xs-9" type="text" speed-unit-input ng-model="SpeedTapeUnit"
                                     ng-blur="updateSpeedTapeUnit()" ng-disabled="!IMU_Sensor_Enabled"
                                     ng-class="{grayout: !IMU_Sensor_Enabled}"
                                     placeholder="Speed Tape Unit [M]PH or [K]T"/>
                         </form>
-                        <!-- Altitude units -->
+                        <!-- Altitude Tape Unit -->
                         <form name=AltitudeTapeUnitForm ng-submit=updateAltitudeTapeUnit() novalidate>
                             <input class="col-xs-9" type="text" altitude-unit-input ng-model="AltitudeTapeUnit"
                                     ng-blur="updateAltitudeTapeUnit()" ng-disabled="!IMU_Sensor_Enabled"
@@ -46,21 +45,21 @@
                                     ng-class="{grayout: !IMU_Sensor_Enabled}"
                                     placeholder="Show Proximity Warning (Y or N)"/>
                         </form>
-                        <!-- Proximity Distance units --> 
+                        <!-- Warning Distance Unit --> 
                         <form name="WarningDistanceUnitForm" ng-submit=updateWarningDistanceUnit() novalidate>
                                 <input class="col-xs-9" type="text" warning-distance-unit-input ng-model="WarningDistanceUnit"
                                             ng-blur="updateWarningDistanceUnit()" ng-disabled="!IMU_Sensor_Enabled"
                                             ng-class="{grayout: !IMU_Sensor_Enabled}"
                                             placeholder="Warning Distance Unit [F]eet or [M]eters"/>
                                 </form>
-                        <!-- Proximity warning distance -->
+                        <!-- Warning Distance -->
                         <form name="WarningDistanceForm" ng-submit=updateWarningDistance() novalidate>
                             <input class="col-xs-9" type="text" show-warning-input ng-model="WarningDistance"
                                     ng-blur="updateWarningDistance()" ng-disabled="!IMU_Sensor_Enabled"
                                     ng-class="{grayout: !IMU_Sensor_Enabled}"
                                     placeholder="Warning Relative Distance"/>
                         </form>
-                        <!-- Proximity warning altitude -->
+                        <!-- Warning Altitude -->
                         <form name="WarningAltitudeForm" ng-submit=updateWarningAltitude() novalidate>
                             <input class="col-xs-9" type="text" show-warning-input ng-model="WarningAltitude"
                                     ng-blur="updateWarningAltitude()" ng-disabled="!IMU_Sensor_Enabled"

@@ -1116,23 +1116,23 @@ type settings struct {
 	WatchList            string
 	DeveloperMode        bool
 	GLimits              string
+	SpeedTapeUnit        string
+	AltitudeTapeUnit     string	
+	ShowWarning          string	
+	WarningDistanceUnit	 string	   
+	WarningDistance      float64
+	WarningAltitude      float64
+	Vs0                  float64
+	Vs1                  float64
+	Vfe                  float64
+	Vno                  float64
+	Vne                  float64
+	BestGlide            float64
 	StaticIps            []string
 	WiFiSSID             string
 	WiFiChannel          int
 	WiFiSecurityEnabled  bool
 	WiFiPassphrase       string
-	SpeedTapeUnit   	 string
-	AltitudeTapeUnit	 string	
-	WarningDistanceUnit	 string	
-	ShowWarning 		 bool	
-   	WarningDistance      float64
-	WarningAltitude      float64
-	Vs0 				 float64
-	Vs1 				 float64
-	Vfe 				 float64
-	Vno 				 float64
-	Vne 				 float64
-	BestGlide 			 float64
 }
 
 type status struct {
@@ -1207,6 +1207,13 @@ func defaultSettings() {
 	globalSettings.OwnshipModeS = "F00000"
 	globalSettings.DeveloperMode = false
 	globalSettings.StaticIps = make([]string, 0)
+
+	globalSettings.SpeedTapeUnit = "K"
+	globalSettings.AltitudeTapeUnit = "F"
+	globalSettings.ShowWarning = "N"
+	globalSettings.WarningDistanceUnit = "M"
+	globalSettings.WarningDistance = 2
+	globalSettings.WarningAltitude = 800
 }
 
 func readSettings() {

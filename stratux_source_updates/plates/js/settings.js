@@ -40,21 +40,22 @@ function SettingsCtrl($rootScope, $scope, $state, $location, $window, $http) {
 		$scope.WatchList = settings.WatchList;
 		$scope.OwnshipModeS = settings.OwnshipModeS;
 		$scope.DeveloperMode = settings.DeveloperMode;
-        $scope.GLimits = settings.GLimits;
-		$scope.StaticIps = settings.StaticIps;
-
-        $scope.WiFiSSID = settings.WiFiSSID;
-        $scope.WiFiPassphrase = settings.WiFiPassphrase;
-        $scope.WiFiSecurityEnabled = settings.WiFiSecurityEnabled;
-        $scope.WiFiChannel = settings.WiFiChannel;
-
-		// HUD settings
+		$scope.GLimits = settings.GLimits;
 		$scope.SpeedTapeUnit = settings.SpeedTapeUnit;
 		$scope.AltitudeTapeUnit = settings.AltitudeTapeUnit;
 		$scope.ShowWarning = settings.ShowWarning;
 		$scope.WarningDistanceUnit = settings.WarningDistanceUnit;
 		$scope.WarningDistance = settings.WarningDistance;
 		$scope.WarningAltitude = settings.WarningAltitude;
+
+		$scope.StaticIps = settings.StaticIps;
+        $scope.WiFiSSID = settings.WiFiSSID;
+        $scope.WiFiPassphrase = settings.WiFiPassphrase;
+        $scope.WiFiSecurityEnabled = settings.WiFiSecurityEnabled;
+        $scope.WiFiChannel = settings.WiFiChannel;
+
+		// HUD settings
+		
 
         $scope.Channels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 	}
