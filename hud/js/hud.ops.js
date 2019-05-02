@@ -180,6 +180,15 @@ var altitudebox = document.getElementById('tspanAltitude');
 var headingbox = document.getElementById('tspanHeading');
 var gbox = document.getElementById('tspanGMeter');
 
+// arrays for averaging displayed values (keeps tapes from jumping around)
+var avgSpdArray = [0,0,0,0,0];
+var avgAltArray = [0,0,0,0,0];
+var avgHdgArray = [0,0,0,0,0];
+var avgCounter = 0;
+var spd = 0;
+var alt = 0;
+var hdg = 0;
+
 var warningIdentity = document.getElementById("tspanWarnIdentity"); 
 var warningAltitude = document.getElementById("tspanWarnAltitude");
 var warningDistance = document.getElementById("tspanWarnDistance");
@@ -324,27 +333,60 @@ setInterval(function() {
         attitude.setPitch(obj.AHRSPitch);
         
         // set these values to a reasonable precision
-        speed = Math.trunc(obj.GPSGroundSpeed);
-        altitude = Math.trunc(obj.GPSAltitudeMSL);
-        heading = Math.trunc(obj.GPSTrueCourse);
         gnumber = obj.AHRSGLoad.toFixed(1);
         slipskid = Math.trunc(obj.AHRSSlipSkid);
 
-        // set the speed, altitude, heading, and GMeter values
-        speedbox.textContent = speed;
-        altitudebox.textContent = altitude;
-        headingbox.textContent = pad(heading, 3);
-        gbox.textContent = gnumber + " G";
+        if (avgCounter < 5) {
+            avgSpdArray[avgCounter] = obj.GPSGroundSpeed;
+            avgAltArray[avgCounter] = obj.GPSAltitudeMSL;
+            avgHdgArray[avgCounter] = obj.GPSTrueCourse;
+            /*
+            console.log(" spd: " + avgSpdArray[avgCounter] + 
+                        " alt: " + avgAltArray[avgCounter] + 
+                        " hdg: " + avgHdgArray[avgCounter]);
+            */
+            avgCounter = avgCounter + 1;
+        }
+        
+        if (avgCounter >= 5) {
+            avgCounter = 0;
+            spd = 0;
+            alt = 0;
+            hdg = 0;
 
-        var speedticks = (speed * spd_offset);
-        var altticks = (altitude * alt_offset);
-        var hdgticks = (heading * hdg_offset) * -1;
-        
-        // set the coordinates of the tapes
-        speedtape.css('transform', 'translateY(' + speedticks + 'px)');
-        alttape.css('transform', 'translateY(' + altticks + 'px');
-        headingtape.css('transform', 'translateX('+ hdgticks + 'px');
-        
+            for (i = 0; i < 5; i++) {
+                spd = spd + avgSpdArray[i];
+                alt = alt + avgAltArray[i];
+                hdg = hdg + avgHdgArray[i];
+
+                // reset array elements to zero
+                avgSpdArray[i] = 0;
+                avgAltArray[i] = 0;
+                avgHdgArray[i] = 0
+            }
+
+            // set the speed, altitude, heading, and GMeter values
+            speed = Math.trunc(spd/5);
+            altitude = Math.trunc(alt/5);
+            heading = pad(Math.trunc(hdg/5), 3);
+
+            speedbox.textContent = speed;
+            altitudebox.textContent = altitude;
+            headingbox.textContent = heading;
+
+            
+            var speedticks = (speed * spd_offset);
+            var altticks = (altitude * alt_offset);
+            var hdgticks = (heading * hdg_offset) * -1;
+            
+            // set the coordinates of the tapes
+            speedtape.css('transform', 'translateY(' + speedticks + 'px)');
+            alttape.css('transform', 'translateY(' + altticks + 'px');
+            headingtape.css('transform', 'translateX('+ hdgticks + 'px');
+        }
+
+        gbox.textContent = gnumber + " G";
+      
         // set the skid-slip ball position
         if (slipskid < -17) {
             slipskid = -17;
@@ -370,34 +412,3 @@ setInterval(function() {
     }
 
 }, 50);
-
-function getSettings() {
-
-}
-
-function setSettings() {
-    
-    var url = "http://192.168.10.1/setSettings";
-    
-}
-
-/*-----------------------------------------------------------   
-                    Settings.json NOTES: 
--------------------------------------------------------------
-    1.) SpeedTapeUnit is either [K]nots or [M]iles per hour 
-    2.) AltitudeTapeUnit is either [F]EET or [M]ETERS
-    3.) WarningDistanceUnit is either [M]ILES or [K]ILOMETERS
--------------------------------------------------------------
-  {"SpeedTapeUnit":"K",
-   "AltitudeTapeUnit":"F",
-   "ShowWarning":"Y",
-   "WarningDistanceUnit":"M",
-   "WarningDistance":2,
-   "WarningAltitude":800,
-   "Vs0":38,
-   "Vs1":44,
-   "Vfe":70, 
-   "Vno":108,
-   "Vne":140,
-   "BestGlide":70}
--------------------------------------------------------------*/

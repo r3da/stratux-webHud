@@ -54,8 +54,12 @@ function SettingsCtrl($rootScope, $scope, $state, $location, $window, $http) {
         $scope.WiFiSecurityEnabled = settings.WiFiSecurityEnabled;
         $scope.WiFiChannel = settings.WiFiChannel;
 
-		// HUD settings
-		
+		$scope.SpeedTapeUnit = settings.SpeedTapeUnit;
+		$scope.AltitudeTapeUnit = settings.AltitudeTapeUnit;
+		$scope.ShowWarning = settings.ShowWarning;
+		$scope.WarningDistanceUnit = settings.WarningDistanceUnit;
+		$scope.WarningDistance = settings.WarningDistance;
+		$scope.WarningAltitude = settings.WarningAltitude;
 
         $scope.Channels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 	}
@@ -85,7 +89,6 @@ function SettingsCtrl($rootScope, $scope, $state, $location, $window, $http) {
 			for (i = 0; i < toggles.length; i++) {
 				settings[toggles[i]] = false;
 			}
-
 		});
 	}
 

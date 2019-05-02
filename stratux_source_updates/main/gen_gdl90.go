@@ -90,6 +90,7 @@ const (
 		GPS_TYPE_GARMIN   = 0x06
 	*/
 
+	GPS_TYPE_UBX9     = 0x09
 	GPS_TYPE_UBX8     = 0x08
 	GPS_TYPE_UBX7     = 0x07
 	GPS_TYPE_UBX6     = 0x06
@@ -97,6 +98,7 @@ const (
 	GPS_TYPE_UART     = 0x01
 	GPS_PROTOCOL_NMEA = 0x10
 	GPS_PROTOCOL_UBX  = 0x30
+
 	// other GPS types to be defined as needed
 
 )
@@ -1116,23 +1118,17 @@ type settings struct {
 	WatchList            string
 	DeveloperMode        bool
 	GLimits              string
-	SpeedTapeUnit        string
-	AltitudeTapeUnit     string	
-	ShowWarning          string	
-	WarningDistanceUnit	 string	   
-	WarningDistance      float64
-	WarningAltitude      float64
-	Vs0                  float64
-	Vs1                  float64
-	Vfe                  float64
-	Vno                  float64
-	Vne                  float64
-	BestGlide            float64
 	StaticIps            []string
 	WiFiSSID             string
 	WiFiChannel          int
 	WiFiSecurityEnabled  bool
 	WiFiPassphrase       string
+	SpeedTapeUnit        string
+	AltitudeTapeUnit     string	
+	ShowWarning          bool	
+	WarningDistanceUnit	 string	   
+	WarningDistance      float64
+	WarningAltitude      float64
 }
 
 type status struct {
@@ -1210,10 +1206,10 @@ func defaultSettings() {
 
 	globalSettings.SpeedTapeUnit = "K"
 	globalSettings.AltitudeTapeUnit = "F"
-	globalSettings.ShowWarning = "N"
+	globalSettings.ShowWarning = true
 	globalSettings.WarningDistanceUnit = "M"
-	globalSettings.WarningDistance = 2
-	globalSettings.WarningAltitude = 800
+	globalSettings.WarningDistance = 1
+	globalSettings.WarningAltitude = 600
 }
 
 func readSettings() {
