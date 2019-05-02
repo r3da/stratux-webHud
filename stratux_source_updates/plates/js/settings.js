@@ -41,13 +41,7 @@ function SettingsCtrl($rootScope, $scope, $state, $location, $window, $http) {
 		$scope.OwnshipModeS = settings.OwnshipModeS;
 		$scope.DeveloperMode = settings.DeveloperMode;
 		$scope.GLimits = settings.GLimits;
-		$scope.SpeedTapeUnit = settings.SpeedTapeUnit;
-		$scope.AltitudeTapeUnit = settings.AltitudeTapeUnit;
-		$scope.ShowWarning = settings.ShowWarning;
-		$scope.WarningDistanceUnit = settings.WarningDistanceUnit;
-		$scope.WarningDistance = settings.WarningDistance;
-		$scope.WarningAltitude = settings.WarningAltitude;
-
+		
 		$scope.StaticIps = settings.StaticIps;
         $scope.WiFiSSID = settings.WiFiSSID;
         $scope.WiFiPassphrase = settings.WiFiPassphrase;
@@ -188,7 +182,7 @@ function SettingsCtrl($rootScope, $scope, $state, $location, $window, $http) {
     };
 
 	$scope.updateSpeedTapeUnit = function () {
-		if ($scope.SpeedUnit !== settings["SpeedTapeUnit"]) {
+		if ($scope.SpeedTapeUnit !== settings["SpeedTapeUnit"]) {
 			settings["SpeedTapeUnit"] = $scope.SpeedTapeUnit;
 			var newsettings = {
 				"SpeedTapeUnit": settings["SpeedTapeUnit"]
@@ -198,8 +192,8 @@ function SettingsCtrl($rootScope, $scope, $state, $location, $window, $http) {
 		}
 	};
 	
-	$scope.updateAltitudeUnit = function () {
-		if ($scope.AltitudeUnit !== settings["AltitudeTapeUnit"]) {
+	$scope.updateAltitudeTapeUnit = function () {
+		if ($scope.AltitudeTapeUnit !== settings["AltitudeTapeUnit"]) {
 			settings["AltitudeTapeUnit"] = $scope.AltitudeTapeUnit;
 			var newsettings = {
 				"AltitudeTapeUnit": settings["AltitudeTapeUnit"]
