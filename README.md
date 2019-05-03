@@ -28,6 +28,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 ````
 3.  Install unclutter
+````
 sudo apt-get install unclutter
 ````
 4.  Install xorg:
@@ -53,7 +54,7 @@ sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/
 chromium-browser --kiosk 'http://localhost/hud/hud.html' --disable-notifications --noerrdialogs --disable-infobars --incognito --disable-features=TranslateUI --disk-cache-dir=/dev/null
 ````
 7. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. This should give you /var/www/hud/ and its subdirectories css, img, and js.
-````
+
 8.  Set the pi for desktop auto-login:
 ````
 sudo raspi-config
