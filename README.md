@@ -25,46 +25,40 @@ exit and allow system reboot.
 2.  Update and upgrade the distribution:
 ````
 sudo apt-get update 
-sudo apt-get upgrade
 sudo apt-get dist-upgrade
 ````
-3.  Install the xserver components:
+3.  Install unclutter
+sudo apt-get install unclutter
 ````
-sudo apt-get install --no-install-recommends xserver-xorg xinit xserver-xorg-video-fbdev lxde lxde-common lightdm
+4.  Install xorg:
 ````
-4.  Install the Chromium browser:
+sudo apt-get install xorg
+````
+5.  Install the Chromium browser:
 ````
 sudo apt-get install --no-install-recommends chromium-browser
 ````
-5.  Create a hidden .xsession startup file and add the necessary startup commands:
+6.  Create ~/.bash_profile file and add the following startup commands:
 ````
-sudo nano ~/.xsession
-
 # Disable any form of screen saver / screen blanking / power management
 xset s off
 xset s noblank
 xset -dpms
 
-# make sure chromium error files are "cleaned up"
+unclutter &
+
+# Start Chromium in kiosk mode
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
-sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences      
-
-# Start chromium in kiosk mode with the hud.html web page
-/usr/bin/chromium-browser --window-size=960,480 --window-position=0,0 --kiosk "http://localhost/hud/hud.html"
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
+chromium-browser --kiosk 'http://localhost/hud/hud.html' --disable-notifications --noerrdialogs --disable-infobars --incognito --disable-features=TranslateUI --disk-cache-dir=/dev/null
 ````
-6. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. If you are using a linux PC to SSH with the pi, you can mount the SD card on your linux machine and then recursively copy the hud folder to /var/www/ on the sd card.  It's a little bit more work to copy from Windows. Using a terminal program like PuTTY will take a few steps. Terminal into the pi, create the necessary folders, and then copy & move the files:
+7. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. This should give you /var/www/hud/ and its subdirectories css, img, and js.
 ````
-create 2 hud directories : /home/pi/hud    and   /var/www/hud   
-use pscp to copy hud files to the pi:  pscp -r <your hud folder>\*.* pi@192.168.10.1:/home/pi/hud/
-terminal into the pi and move the files:  sudo mv -r /home/pi/hud/* /var/www/hud/
-
-This should give you /var/www/hud/ and its subdirectories css, img, and js.
-````
-7.  Set the pi for desktop auto-login:
+8.  Set the pi for desktop auto-login:
 ````
 sudo raspi-config
 select Boot Options
-select Desktop Autologin Desktop GUI, automatically logged in as ‘pi’ user
+select Console Autologin, automatically logged in as ‘pi’ user
 ````
 
 Reboot the Stratux RPi.  Using your favorite browser on iPad, phone, desktop, etc., join the stratux wifi network and browse to http://192.168.10.1/hud/hud.html if everything is working, you should see the AHRS display with solid black background. Physically moving the Stratux should show very smooth movement of the AHRS on the web page. (20 frames/sec.)

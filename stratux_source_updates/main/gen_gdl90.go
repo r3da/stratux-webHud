@@ -1129,6 +1129,12 @@ type settings struct {
 	WarningDistanceUnit	 string	   
 	WarningDistance      float64
 	WarningAltitude      float64
+	Vs0                  float64
+	Vs1                  float64
+	Vfe                  float64
+	Vno                  float64
+	Vne                  float64
+	BestGlide            float64
 }
 
 type status struct {
@@ -1201,7 +1207,7 @@ func defaultSettings() {
 	globalSettings.AHRSLog = false
 	globalSettings.IMUMapping = [2]int{-1, 0}
 	globalSettings.OwnshipModeS = "F00000"
-	globalSettings.DeveloperMode = false
+	globalSettings.DeveloperMode = true
 	globalSettings.StaticIps = make([]string, 0)
 
 	globalSettings.SpeedTapeUnit = "K"
@@ -1210,6 +1216,12 @@ func defaultSettings() {
 	globalSettings.WarningDistanceUnit = "M"
 	globalSettings.WarningDistance = 1
 	globalSettings.WarningAltitude = 600
+	globalSettings.Vs0 = 0
+	globalSettings.Vs1 = 0
+	globalSettings.Vfe = 0
+	globalSettings.Vno = 0
+	globalSettings.Vne = 0
+	globalSettings.BestGlide = 0
 }
 
 func readSettings() {
