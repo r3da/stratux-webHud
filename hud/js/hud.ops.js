@@ -341,7 +341,7 @@ setInterval(function() {
         slipskid = Math.trunc(obj.AHRSSlipSkid);
         
         if (avgCounter < 5) {
-            avgSpdArray[avgCounter] = obj.GPSGroundSpeed;
+            avgSpdArray[avgCounter] = obj.GPSGroundSpeed * 1.151; // mph multiplier
             avgAltArray[avgCounter] = obj.GPSAltitudeMSL;
             avgHdgArray[avgCounter] = obj.GPSTrueCourse;
             avgVspArray[avgCounter] = obj.BaroVerticalSpeed;
@@ -383,9 +383,9 @@ setInterval(function() {
             altitudebox.textContent = altitude;
             headingbox.textContent = heading;
             if (vertspeed >= 0) {
-                vspeedbox.textContent = "▲ " + Math.abs(vertspeed) + " FPM ↑";
+                vspeedbox.textContent = "_▲_ " + Math.abs(vertspeed) + " FPM";
             } else {
-                vspeedbox.textContent = "▼ " + Math.abs(vertspeed) + " FPM ↓"
+                vspeedbox.textContent = "_▼_ " + Math.abs(vertspeed) + " FPM"
             }
             var speedticks = (speed * spd_offset);
             var altticks = (altitude * alt_offset);

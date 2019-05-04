@@ -135,8 +135,8 @@ body {
   height: 40px;
   width: 80px;
   position: absolute;
-  top: 380px;
-  left: 725px;
+  top: 422px;
+  left: 90px;
   visibility: visible;
   z-index: 200;
   transform: scale(1.25, 1.25);
@@ -146,8 +146,8 @@ body {
   height: 40px;
   width: 113px;
   position: absolute;
-  top: 380px;
-  left: 83px;
+  top: 422px;
+  left: 738px;
   visibility: visible;
   z-index: 200;
   transform: scale(1.25, 1.25);
