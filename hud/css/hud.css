@@ -114,8 +114,8 @@ body {
   height: 400px;
   width: 900px;
   position: absolute;
-  top: 60px;
-  left: 30px;
+  top: 70px;
+  left: -2px;
   visibility: hidden; 
   z-index: 250;
 }
@@ -124,8 +124,8 @@ body {
   height: 35px;
   width: 40px;
   position: absolute;
-  top: 386px;
-  left: 100px;
+  top: 370px;
+  left: 96px;
   visibility: hidden;
   z-index: 200;
   transform: scale(1.25, 1.25)
