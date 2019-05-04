@@ -11,7 +11,7 @@ An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-vi
 ![Image of Stratux Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoRPi.jpg)
 ![Image of Kivic Jack](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/PluggedIntoKivic.jpg)
 
-# Instructions for a reasonably minimum footprint install on the Stratux raspbian stretch lite image:
+# Instructions for a minimum footprint install on the Stratux image:
 
 I used the wired nic on the Stratux RPi for downloading updates. Terminal into the pi using ssh from Linux or Apple, or on Windows 10 use a terminal program like puTTY, and complete the following steps. 
 
