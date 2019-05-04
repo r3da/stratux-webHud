@@ -31,7 +31,7 @@ sudo apt-get install unclutter
 sudo apt-get install xorg
 sudo apt-get install --no-install-recommends chromium-browser
 ````
-3.  Create ~/.bash_profile file and add the following startup commands:
+3.  Create ~/.config/openbox/autostart file and add the following commands:
 ````
 # Disable any form of screen saver / screen blanking / power management
 xset s off
@@ -45,9 +45,15 @@ sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Loc
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
 chromium-browser --kiosk 'http://localhost/hud/hud.html' --disable-notifications --noerrdialogs --disable-infobars --incognito --disable-features=TranslateUI --disk-cache-dir=/dev/null
 ````
-4. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. This should give you /var/www/hud/ and its subdirectories css, img, and js.
+4.  Create ~/.bash_profile file and add the startx command
+````
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    startx
+fi
+````
+5. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. This should give you /var/www/hud/ and its subdirectories css, img, and js.
 
-5.  Set the pi for console auto-login:
+6.  Set the pi for console auto-login:
 ````
 sudo raspi-config
 select Boot Options

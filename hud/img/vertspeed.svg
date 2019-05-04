@@ -1,4 +1,4 @@
-<svg id="vertspeed" xmlns="http://www.w3.org/2000/svg" width="130" height="50" viewBox="0 0 10.507 13.229">
+<svg id="verticalspeed" xmlns="http://www.w3.org/2000/svg" width="130" height="50" viewBox="0 0 10.507 13.229">
   <path stroke-miterlimit="10" d="M-11.928.974h34.363v11.28h-34.363z" stroke="#00eb1a" stroke-width="2.413" stroke-linejoin="round" paint-order="fill markers stroke"/>
   <text style="line-height:1.25;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:small-caps;font-variant-numeric:proportional-nums;font-feature-settings:normal;text-align:justify" x="-13.769" y="7.325" transform="scale(.78074 1.28084)" font-weight="700" font-size="5.995" letter-spacing="0" word-spacing="0" font-family="sans-serif" fill="#fff" stroke-width=".696">
     <tspan id="tspanVertspeed" x="-13.769" y="7.325">^ 1000 FPM</tspan>

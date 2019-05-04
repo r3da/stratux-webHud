@@ -348,7 +348,8 @@ setInterval(function() {
             /*
             console.log(" spd: " + avgSpdArray[avgCounter] + 
                         " alt: " + avgAltArray[avgCounter] + 
-                        " hdg: " + avgHdgArray[avgCounter]);
+                        " hdg: " + avgHdgArray[avgCounter] + 
+                        " vsp: " + avgVspArray[avgCounter]);
             */
             avgCounter = avgCounter + 1;
         }
@@ -382,9 +383,9 @@ setInterval(function() {
             altitudebox.textContent = altitude;
             headingbox.textContent = heading;
             if (vertspeed >= 0) {
-                vspeedbox.textContent = "▲ " + Math.abs(vertspeed) + " FPM";
+                vspeedbox.textContent = "▲ " + Math.abs(vertspeed) + " FPM ↑";
             } else {
-                vspeedbox.textContent = "▼ " + Math.abs(vertspeed) + " FPM"
+                vspeedbox.textContent = "▼ " + Math.abs(vertspeed) + " FPM ↓"
             }
             var speedticks = (speed * spd_offset);
             var altticks = (altitude * alt_offset);
