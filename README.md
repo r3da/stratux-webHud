@@ -31,9 +31,10 @@ sudo apt-get dist-upgrade
 ````
 sudo apt-get install unclutter
 ````
-4.  Install xorg:
+4.  Install xorg and openbox:
 ````
 sudo apt-get install xorg
+sudo apt-get install openbox
 ````
 5.  Install the Chromium browser:
 ````
