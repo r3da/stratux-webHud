@@ -22,24 +22,16 @@ select Advanced Options
 select Expand Filesystem
 exit and allow system reboot.
 ````
-2.  Update and upgrade the distribution:
+2.  Install all of the necessary packages:
 ````
-sudo apt-get update 
+sudo apt-get install ntp   
+sudo apt-get update       
 sudo apt-get dist-upgrade
-````
-3.  Install unclutter
-````
 sudo apt-get install unclutter
-````
-4.  Install xorg:
-````
 sudo apt-get install xorg
-````
-5.  Install the Chromium browser:
-````
 sudo apt-get install --no-install-recommends chromium-browser
 ````
-6.  Create ~/.bash_profile file and add the following startup commands:
+3.  Create ~/.bash_profile file and add the following startup commands:
 ````
 # Disable any form of screen saver / screen blanking / power management
 xset s off
@@ -53,9 +45,9 @@ sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Loc
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
 chromium-browser --kiosk 'http://localhost/hud/hud.html' --disable-notifications --noerrdialogs --disable-infobars --incognito --disable-features=TranslateUI --disk-cache-dir=/dev/null
 ````
-7. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. This should give you /var/www/hud/ and its subdirectories css, img, and js.
+4. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. This should give you /var/www/hud/ and its subdirectories css, img, and js.
 
-8.  Set the pi for desktop auto-login:
+5.  Set the pi for desktop auto-login:
 ````
 sudo raspi-config
 select Boot Options
