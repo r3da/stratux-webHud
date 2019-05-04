@@ -47,7 +47,7 @@ chromium-browser --kiosk 'http://localhost/hud/hud.html' --disable-notifications
 ````
 4. Recursively copy the hud folder from your clone (or .zip) to a new hud folder under /var/www/. This should give you /var/www/hud/ and its subdirectories css, img, and js.
 
-5.  Set the pi for desktop auto-login:
+5.  Set the pi for console auto-login:
 ````
 sudo raspi-config
 select Boot Options
