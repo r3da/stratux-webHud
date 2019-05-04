@@ -142,6 +142,17 @@ body {
   transform: scale(1.25, 1.25);
 }
 
+#vertspeed {
+  height: 40px;
+  width: 113px;
+  position: absolute;
+  top: 380px;
+  left: 83px;
+  visibility: visible;
+  z-index: 200;
+  transform: scale(1.25, 1.25);
+}
+
 #slipskid {
   height: 120px;
   width: 387px;

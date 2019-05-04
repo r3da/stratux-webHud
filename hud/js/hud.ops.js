@@ -158,6 +158,7 @@ var speed = 0;
 var altitude = 0;
 var heading = 0;
 var gnumber = 0;
+var vertspeed = 0;
 
 /////////////////////////////////////////////////////////////////////////
 //
@@ -179,15 +180,18 @@ var speedbox = document.getElementById('tspanSpeed');
 var altitudebox = document.getElementById('tspanAltitude');
 var headingbox = document.getElementById('tspanHeading');
 var gbox = document.getElementById('tspanGMeter');
+var vspeedbox = document.getElementById('tspanVertspeed');
 
 // arrays for averaging displayed values (keeps tapes from jumping around)
 var avgSpdArray = [0,0,0,0,0];
 var avgAltArray = [0,0,0,0,0];
 var avgHdgArray = [0,0,0,0,0];
+var avgVspArray = [0,0,0,0,0];
 var avgCounter = 0;
 var spd = 0;
 var alt = 0;
 var hdg = 0;
+var vsp = 0;
 
 var warningIdentity = document.getElementById("tspanWarnIdentity"); 
 var warningAltitude = document.getElementById("tspanWarnAltitude");
@@ -335,11 +339,12 @@ setInterval(function() {
         // set these values to a reasonable precision
         gnumber = obj.AHRSGLoad.toFixed(1);
         slipskid = Math.trunc(obj.AHRSSlipSkid);
-
+        
         if (avgCounter < 5) {
             avgSpdArray[avgCounter] = obj.GPSGroundSpeed;
             avgAltArray[avgCounter] = obj.GPSAltitudeMSL;
             avgHdgArray[avgCounter] = obj.GPSTrueCourse;
+            avgVspArray[avgCounter] = obj.BaroVerticalSpeed;
             /*
             console.log(" spd: " + avgSpdArray[avgCounter] + 
                         " alt: " + avgAltArray[avgCounter] + 
@@ -353,28 +358,34 @@ setInterval(function() {
             spd = 0;
             alt = 0;
             hdg = 0;
+            vsp = 0;
 
             for (i = 0; i < 5; i++) {
                 spd = spd + avgSpdArray[i];
                 alt = alt + avgAltArray[i];
                 hdg = hdg + avgHdgArray[i];
+                vsp = vsp + avgVspArray[i];
 
                 // reset array elements to zero
                 avgSpdArray[i] = 0;
                 avgAltArray[i] = 0;
                 avgHdgArray[i] = 0
+                avgVspArray[i] = 0;
             }
 
             // set the speed, altitude, heading, and GMeter values
             speed = Math.trunc(spd/5);
             altitude = Math.trunc(alt/5);
             heading = pad(Math.trunc(hdg/5), 3);
-
+            vertspeed = Math.trunc(vsp/5);
             speedbox.textContent = speed;
             altitudebox.textContent = altitude;
             headingbox.textContent = heading;
-
-            
+            if (vertspeed >= 0) {
+                vspeedbox.textContent = "▲ " + Math.abs(vertspeed) + " FPM";
+            } else {
+                vspeedbox.textContent = "▼ " + Math.abs(vertspeed) + " FPM"
+            }
             var speedticks = (speed * spd_offset);
             var altticks = (altitude * alt_offset);
             var hdgticks = (heading * hdg_offset) * -1;
