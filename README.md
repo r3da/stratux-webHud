@@ -24,7 +24,7 @@ exit and allow system reboot.
 ````
 2.  Install all of the necessary packages:
 ````
-sudo apt-get install ntp   
+sudo systemctl start ntp   
 sudo apt-get update       
 sudo apt-get dist-upgrade
 sudo apt-get install unclutter
