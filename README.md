@@ -29,6 +29,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get install unclutter
 sudo apt-get install xorg
+sudo apt-get install openbox
 sudo apt-get install --no-install-recommends chromium-browser
 ````
 3.  Create ~/.config/openbox/autostart file and add the following commands:
