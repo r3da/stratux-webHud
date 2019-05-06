@@ -169,12 +169,13 @@ var vertspeed = 0;
 var warning_distance = 2;   // miles
 var warning_altitude = 800; // feet
 
-// tape offsets, in pixels per unit of measure
+// offsets, in pixels per unit of measure
 const spd_offset = 4.8;    // Knots
 const alt_offset = .4792;  // Feet MSL
 const hdg_offset = 4.720;  // Degrees
 const ball_offset = 3;     // Degrees
 const ball_center = 433;   // this is "center" of the slip-skid indicator
+const pitch_offset = 1.24;
 
 var speedbox = document.getElementById('tspanSpeed');
 var altitudebox = document.getElementById('tspanAltitude');
@@ -183,15 +184,16 @@ var gbox = document.getElementById('tspanGMeter');
 var vspeedbox = document.getElementById('tspanVertspeed');
 
 // arrays for averaging displayed values (keeps tapes from jumping around)
-var avgSpdArray = [0,0,0,0,0];
-var avgAltArray = [0,0,0,0,0];
-var avgHdgArray = [0,0,0,0,0];
-var avgVspArray = [0,0,0,0,0];
+var avgSpdArray = [0,0,0,0,0,0,0,0,0,0];
+var avgAltArray = [0,0,0,0,0,0,0,0,0,0];
+var avgHdgArray = [0,0,0,0,0,0,0,0,0,0];
+var avgVspArray = [0,0,0,0,0,0,0,0,0,0];
 var avgCounter = 0;
 var spd = 0;
 var alt = 0;
 var hdg = 0;
 var vsp = 0;
+const divisor = 10;
 
 var warningIdentity = document.getElementById("tspanWarnIdentity"); 
 var warningAltitude = document.getElementById("tspanWarnAltitude");
@@ -322,7 +324,7 @@ function onError(evt) {
 }
 
 setInterval(function() {
-     
+    
     fetch(urlAHRS)
         .then(function(response) {
         return response.json();
@@ -334,13 +336,13 @@ setInterval(function() {
 
         // attitude pitch & roll
         attitude.setRoll(obj.AHRSRoll);
-        attitude.setPitch(obj.AHRSPitch);
+        attitude.setPitch(obj.AHRSPitch * pitch_offset);
         
         // set these values to a reasonable precision
         gnumber = obj.AHRSGLoad.toFixed(1);
         slipskid = Math.trunc(obj.AHRSSlipSkid);
         
-        if (avgCounter < 5) {
+        if (avgCounter < divisor) {
             avgSpdArray[avgCounter] = obj.GPSGroundSpeed * 1.151; // mph multiplier
             avgAltArray[avgCounter] = obj.GPSAltitudeMSL;
             avgHdgArray[avgCounter] = obj.GPSTrueCourse;
@@ -354,14 +356,14 @@ setInterval(function() {
             avgCounter = avgCounter + 1;
         }
         
-        if (avgCounter >= 5) {
+        if (avgCounter >= divisor) {
             avgCounter = 0;
             spd = 0;
             alt = 0;
             hdg = 0;
             vsp = 0;
 
-            for (i = 0; i < 5; i++) {
+            for (i = 0; i < divisor; i++) {
                 spd = spd + avgSpdArray[i];
                 alt = alt + avgAltArray[i];
                 hdg = hdg + avgHdgArray[i];
@@ -375,10 +377,10 @@ setInterval(function() {
             }
 
             // set the speed, altitude, heading, and GMeter values
-            speed = Math.trunc(spd/5);
-            altitude = Math.trunc(alt/5);
-            heading = pad(Math.trunc(hdg/5), 3);
-            vertspeed = Math.trunc(vsp/5);
+            speed = Math.trunc(spd/divisor);
+            altitude = Math.trunc(alt/divisor);
+            heading = pad(Math.trunc(hdg/divisor), 3);
+            vertspeed = Math.trunc(vsp/divisor);
             speedbox.textContent = speed;
             altitudebox.textContent = altitude;
             headingbox.textContent = heading;
