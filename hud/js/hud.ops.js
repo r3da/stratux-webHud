@@ -182,6 +182,7 @@ var altitudebox = document.getElementById('tspanAltitude');
 var headingbox = document.getElementById('tspanHeading');
 var gbox = document.getElementById('tspanGMeter');
 var vspeedbox = document.getElementById('tspanVertspeed');
+var varrowbox = document.getElementById('tspanArrow');
 
 // arrays for averaging displayed values (keeps tapes from jumping around)
 var avgSpdArray = [0,0,0,0,0,0,0,0,0,0];
@@ -384,11 +385,9 @@ setInterval(function() {
             speedbox.textContent = speed;
             altitudebox.textContent = altitude;
             headingbox.textContent = heading;
-            if (vertspeed >= 0) {
-                vspeedbox.textContent = "_▲_ " + Math.abs(vertspeed) + " FPM";
-            } else {
-                vspeedbox.textContent = "_▼_ " + Math.abs(vertspeed) + " FPM"
-            }
+            vspeedbox.textContent = Math.abs(vertspeed) + " FPM";
+            varrowbox.textContent = (vertspeed < 0 ? "▼" : "▲");
+            
             var speedticks = (speed * spd_offset);
             var altticks = (altitude * alt_offset);
             var hdgticks = (heading * hdg_offset) * -1;
