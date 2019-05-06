@@ -9,7 +9,7 @@ body {
   overflow: hidden;
 }
 
-/* use this class if you are using a Kivic unit */
+/* uncomment this class if you are using a Kivic unit */
 /*
 .hud {
   width: 960px;
@@ -22,7 +22,7 @@ body {
 }
 */
 
-/* use this class if you are using a Hudly unit */
+/* uncomment this class if you are using a Hudly unit */
 .hud {
   width: 960px;
   height: 480px;
