@@ -175,7 +175,7 @@ const alt_offset = .4792;  // Feet MSL
 const hdg_offset = 4.720;  // Degrees
 const ball_offset = 3;     // Degrees
 const ball_center = 433;   // this is "center" of the slip-skid indicator
-const pitch_offset = 1.24;
+const pitch_offset = 1.19; // this adjusts the pitch to match Stratux
 
 var speedbox = document.getElementById('tspanSpeed');
 var altitudebox = document.getElementById('tspanAltitude');
