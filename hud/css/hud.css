@@ -9,6 +9,8 @@ body {
   overflow: hidden;
 }
 
+/* use this class if you are using a Kivic unit */
+/*
 .hud {
   width: 960px;
   height: 480px;
@@ -17,6 +19,18 @@ body {
   position: relative;
   overflow: hidden;
   transform: scale(0.74,0.80);
+}
+*/
+
+/* use this class if you are using a Hudly unit */
+.hud {
+  width: 960px;
+  height: 480px;
+  top: 220px;
+  left: 430px;
+  position: relative;
+  overflow: hidden;
+  transform: scale(2.1, 2.2);
 }
 
 .scrollspeed {
