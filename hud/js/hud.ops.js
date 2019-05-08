@@ -194,7 +194,7 @@ var spd = 0;
 var alt = 0;
 var hdg = 0;
 var vsp = 0;
-const divisor = 10;
+const divisor = 5;
 
 var warningIdentity = document.getElementById("tspanWarnIdentity"); 
 var warningAltitude = document.getElementById("tspanWarnAltitude");
@@ -347,17 +347,10 @@ setInterval(function() {
             avgSpdArray[avgCounter] = obj.GPSGroundSpeed * 1.151; // mph multiplier
             avgAltArray[avgCounter] = obj.GPSAltitudeMSL;
             avgHdgArray[avgCounter] = obj.GPSTrueCourse;
-            avgVspArray[avgCounter] = obj.BaroVerticalSpeed;
-            /*
-            console.log(" spd: " + avgSpdArray[avgCounter] + 
-                        " alt: " + avgAltArray[avgCounter] + 
-                        " hdg: " + avgHdgArray[avgCounter] + 
-                        " vsp: " + avgVspArray[avgCounter]);
-            */
+            avgVspArray[avgCounter] = obj.GPSVerticalSpeed;
             avgCounter = avgCounter + 1;
-        }
-        
-        if (avgCounter >= divisor) {
+        } 
+        else if (avgCounter >= divisor) {
             avgCounter = 0;
             spd = 0;
             alt = 0;
