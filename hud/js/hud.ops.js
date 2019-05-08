@@ -336,7 +336,7 @@ setInterval(function() {
         var obj = JSON.parse(str);
 
         // attitude pitch & roll
-        attitude.setRoll(obj.AHRSRoll);
+        attitude.setRoll(obj.AHRSRoll * -1);
         attitude.setPitch(obj.AHRSPitch * pitch_offset);
         
         // set these values to a reasonable precision
