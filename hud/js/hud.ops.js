@@ -146,7 +146,7 @@ const urlAHRS = "http://192.168.10.1/getSituation";
 
 // ADS-B traffic websocket url
 const urlTraffic = "ws://192.168.10.1/traffic";
-var showWarning = false;
+var showWarning = true;
 var speedtape = $('#speedtape');
 var alttape = $('#alttape');
 var headingtape = $('#headingtape');
