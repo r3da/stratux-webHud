@@ -2,9 +2,9 @@
 
 stratux-webHud is a simple Html application that is displayed on a web page in the Chromium browser in Kiosk mode, running on the Stratux RPi itself.  You then use either a HDMI cable from the Stratux to a Hudly or other HDMI capable projector, or a 3.5mm TRRS cable from the composite video jack on the Stratux to the backup camera port on the Kivic HUD.   
 
-This application has been tested on Raspberry pi 2B and 3B.  I am currently testing on a Pi Zero W, using a USB expansion card, and also working on a configuration layer that will be accessible from the Stratux settings web page.
+This application has been tested on Raspberry pi 2B and 3B.  I am currently working on a configuration layer that will be accessible from the Stratux settings web page.
 
-An example of the 3.5mm  TRSS cable can be seen at http://www.l-com.com/audio-video-thinline-35mm-cable-assemblies-male-to-male-4-circuit-tip-ring-ring-sleeve-trrs
+An example of a 3.5mm TRSS cable can be found at http://www.l-com.com/audio-video-thinline-35mm-cable-assemblies-male-to-male-4-circuit-tip-ring-ring-sleeve-trrs
 
 ![Image of Screen1](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/InTurn.png)
 ![Image of Screen2](https://github.com/N129BZ/stratux-webHud/blob/master/readme_images/WithSlipSkid2.png)
