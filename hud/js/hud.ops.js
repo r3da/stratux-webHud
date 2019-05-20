@@ -121,32 +121,13 @@ function setWarningBox() {
     var warningflag = $('#warningflag');
     showWarning == true ? warningflag.css('visibility','visible') : warningflag.css('visibility','hidden');
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//      JSON output returned by Stratux from a POST to http://192.168.10.1/getSituation (AHRS data)
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// {"GPSLastFixSinceMidnightUTC":0,"GPSLatitude":0,"GPSLongitude":0,"GPSFixQuality":0,"GPSHeightAboveEllipsoid":0,"GPSGeoidSep":0,
-//  "GPSSatellites":0,"GPSSatellitesTracked":0,"GPSSatellitesSeen":2,"GPSHorizontalAccuracy":999999,"GPSNACp":0,"GPSAltitudeMSL":0,
-//  "GPSVerticalAccuracy":999999,"GPSVerticalSpeed":0,"GPSLastFixLocalTime":"0001-01-01T00:00:00Z","GPSTrueCourse":0,"GPSTurnRate":0,
-//  "GPSGroundSpeed":0,"GPSLastGroundTrackTime":"0001-01-01T00:00:00Z","GPSTime":"0001-01-01T00:00:00Z",
-//  "GPSLastGPSTimeStratuxTime":"0001-01-01T00:00:00Z","GPSLastValidNMEAMessageTime":"0001-01-01T00:01:33.5Z",
-//  "GPSLastValidNMEAMessage":"$PUBX,00,000122.90,0000.00000,N,00000.00000,E,0.000,NF,5303302,3750001,0.000,0.00,0.000,,99.99,99.99,99.99,0,0,0*20",
-//  "GPSPositionSampleRate":0,"BaroTemperature":22.1,"BaroPressureAltitude":262.4665,"BaroVerticalSpeed":-0.6568238,
-//  "BaroLastMeasurementTime":"0001-01-01T00:01:33.52Z","AHRSPitch":-1.7250436907060585,"AHRSRoll":1.086912223392926,
-//  "AHRSGyroHeading":3276.7,"AHRSMagHeading":3276.7,"AHRSSlipSkid":-0.6697750324029778,"AHRSTurnRate":3276.7,
-//  "AHRSGLoad":0.9825397416431592,"AHRSGLoadMin":0.9799488522426687,"AHRSGLoadMax":0.9828301105039375,
-//  "AHRSLastAttitudeTime":"0001-01-01T00:01:33.55Z","AHRSStatus":6}
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // AHRS url
 const urlAHRS = "http://192.168.10.1/getSituation";
 
 // ADS-B traffic websocket url
 const urlTraffic = "ws://192.168.10.1/traffic";
-var showWarning = true;
+
 var speedtape = $('#speedtape');
 var alttape = $('#alttape');
 var headingtape = $('#headingtape');
@@ -166,8 +147,9 @@ var vertspeed = 0;
 // this needs to be replaced by user-defined criteria. 
 //
 /////////////////////////////////////////////////////////////////////////
+var showWarning = true;
 var warning_distance = 2;   // miles
-var warning_altitude = 800; // feet
+var warning_altitude = 1000; // feet
 
 // offsets, in pixels per unit of measure
 const spd_offset = 4.8;    // Knots
@@ -323,6 +305,26 @@ function sendKeepAlive(data) {
 function onError(evt) {
     console.log("Websocket ERROR: " + evt.data);
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      JSON output returned by Stratux from a POST to http://192.168.10.1/getSituation (AHRS data)
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// {"GPSLastFixSinceMidnightUTC":0,"GPSLatitude":0,"GPSLongitude":0,"GPSFixQuality":0,"GPSHeightAboveEllipsoid":0,"GPSGeoidSep":0,
+//  "GPSSatellites":0,"GPSSatellitesTracked":0,"GPSSatellitesSeen":2,"GPSHorizontalAccuracy":999999,"GPSNACp":0,"GPSAltitudeMSL":0,
+//  "GPSVerticalAccuracy":999999,"GPSVerticalSpeed":0,"GPSLastFixLocalTime":"0001-01-01T00:00:00Z","GPSTrueCourse":0,"GPSTurnRate":0,
+//  "GPSGroundSpeed":0,"GPSLastGroundTrackTime":"0001-01-01T00:00:00Z","GPSTime":"0001-01-01T00:00:00Z",
+//  "GPSLastGPSTimeStratuxTime":"0001-01-01T00:00:00Z","GPSLastValidNMEAMessageTime":"0001-01-01T00:01:33.5Z",
+//  "GPSLastValidNMEAMessage":"$PUBX,00,000122.90,0000.00000,N,00000.00000,E,0.000,NF,5303302,3750001,0.000,0.00,0.000,,99.99,99.99,99.99,0,0,0*20",
+//  "GPSPositionSampleRate":0,"BaroTemperature":22.1,"BaroPressureAltitude":262.4665,"BaroVerticalSpeed":-0.6568238,
+//  "BaroLastMeasurementTime":"0001-01-01T00:01:33.52Z","AHRSPitch":-1.7250436907060585,"AHRSRoll":1.086912223392926,
+//  "AHRSGyroHeading":3276.7,"AHRSMagHeading":3276.7,"AHRSSlipSkid":-0.6697750324029778,"AHRSTurnRate":3276.7,
+//  "AHRSGLoad":0.9825397416431592,"AHRSGLoadMin":0.9799488522426687,"AHRSGLoadMax":0.9828301105039375,
+//  "AHRSLastAttitudeTime":"0001-01-01T00:01:33.55Z","AHRSStatus":6}
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 setInterval(function() {
     
