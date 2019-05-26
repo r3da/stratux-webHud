@@ -44,7 +44,7 @@ unclutter &
 # Start Chromium in kiosk mode
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
-chromium-browser --kiosk 'http://localhost/hud/hud.html' --disable-notifications --noerrdialogs --disable-infobars --incognito --disable-features=TranslateUI --disk-cache-dir=/dev/null
+chromium-browser --kiosk 'http://localhost/hud/hud.html' --disable-notifications --noerrdialogs --disable-infobars --incognito --no-first-run --disable-features=TranslateUI --disk-cache-dir=/dev/null
 ````
 4.  Create ~/.bash_profile file and add the startx command
 ````
